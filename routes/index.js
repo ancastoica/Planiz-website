@@ -16,10 +16,13 @@ router.get('/', function(req, res, next) {
     res.render('index', { title: 'Planiz' });
 });
 
+
 /* GET create planiz form page. */
 router.get('/createPlaniz', function (req, res) {
     res.render('createPlaniz', { title: 'Planiz' });
 });
+
+
 
 /* connexion à la bdd pour les pages spécifiques à 1 planiz*/
 MongoClient.connect("mongodb://localhost/bdd_planiz", function(err, db) {
@@ -55,7 +58,7 @@ MongoClient.connect("mongodb://localhost/bdd_planiz", function(err, db) {
         });
     });
 
-    /* GET homepage for planiz_id */
+    /* GET homepage/dashboard for planiz_id */
     router.get('/:planiz_id', function (req, res) {
         var o_id = new mongo.ObjectID(req.params.planiz_id);
         db.collection("planiz").findOne({"_id": o_id}, function (err, result) {

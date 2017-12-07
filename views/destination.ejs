@@ -10,6 +10,7 @@
 
 <body>
 <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+
     <%include partials/header.html%>
     <%include partials/left_menu.ejs%>
 
@@ -21,20 +22,22 @@
 
                     <br>
 
+                    <!-- Liste avec destinations présentes dans la bdd -->
                     <ul>
-                        <% for(var i=0; i<planiz.destinations.length; i++) {%>
+                        <% if(planiz.destinations){
+                            for(var i=0; i<planiz.destinations.length; i++) {%>
 
-                            <li>
-                                <label for=checkbox<%=i%> class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
-                                    <input type="checkbox" id=checkbox<%=i%> class="mdl-checkbox__input">
-                                    <span class="mdl-checkbox__label"><%= planiz.destinations[i] %></span>
-                                </label>
-                            </li>
-
-                        <% } %>
+                                <li>
+                                    <label for=checkbox<%=i%> class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                        <input type="checkbox" id=checkbox<%=i%> class="mdl-checkbox__input">
+                                        <span class="mdl-checkbox__label"><%= planiz.destinations[i] %></span>
+                                    </label>
+                                </li>
+                        <% } }%>
 
                         <br>
 
+                        <!-- Formulaire pour rajouter une nouvelle destination -->
                         <li>
                             <form action=/addDestination/<%= planiz._id %> method='post'>
                                 <fieldset>
@@ -52,6 +55,7 @@
                     </ul>
                 </div>
 
+                <!-- Validation vote -->
 
                 <div class="mdl-card__actions mdl-card--border">
                     <a href="#" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-color-text--white">Vote</a>
