@@ -38,10 +38,11 @@ MongoClient.connect("mongodb://localhost/bdd_planiz", function(err, db) {
         var newObj = {
             title: planiz_object.title,
             description: planiz_object.description,
+            destinations: [],
             users: [{id: id_user, name: planiz_object.username}]
         };
 
-        req.session.userId = id_user;
+        //req.session.userId = id_user;
 
         db.collection("planiz").insert(newObj, null, function (err, result) {
             if (err) {
@@ -68,13 +69,11 @@ MongoClient.connect("mongodb://localhost/bdd_planiz", function(err, db) {
 
     /* GET homepage/dashboard for planiz_id */
     router.get('/:planiz_id/dashboard', function (req, res) {
-        console.log("Je suis ici 1");
         var o_id = new mongo.ObjectID(req.params.planiz_id);
         db.collection("planiz").findOne({"_id": o_id}, function (err, result) {
             if (err) {
                 console.error('Find failed', err);
             } else {
-                console.log(result._id);
                 res.render('dashboard', {title:result.title, planiz: result})
             }
         });
@@ -82,13 +81,11 @@ MongoClient.connect("mongodb://localhost/bdd_planiz", function(err, db) {
 
     /* GET dates page for planiz_id */
     router.get('/:planiz_id/dates', function (req, res) {
-        console.log("Je suis ici 1");
         var o_id = new mongo.ObjectID(req.params.planiz_id);
         db.collection("planiz").findOne({"_id": o_id}, function (err, result) {
             if (err) {
                 console.error('Find failed', err);
             } else {
-                console.log(result._id);
                 res.render('dates', {title:result.title, planiz: result})
             }
         });
@@ -96,13 +93,11 @@ MongoClient.connect("mongodb://localhost/bdd_planiz", function(err, db) {
 
     /* GET destinations page for planiz_id */
     router.get('/:planiz_id/destination', function (req, res) {
-        console.log("Je suis ici 1");
         var o_id = new mongo.ObjectID(req.params.planiz_id);
         db.collection("planiz").findOne({"_id": o_id}, function (err, result) {
             if (err) {
                 console.error('Find failed', err);
             } else {
-                console.log(result._id);
                 res.render('destination', {title:result.title, planiz: result})
             }
         });
@@ -110,17 +105,36 @@ MongoClient.connect("mongodb://localhost/bdd_planiz", function(err, db) {
 
     /* GET budget page for planiz_id */
     router.get('/:planiz_id/budget', function (req, res) {
-        console.log("Je suis ici 1");
         var o_id = new mongo.ObjectID(req.params.planiz_id);
         db.collection("planiz").findOne({"_id": o_id}, function (err, result) {
             if (err) {
                 console.error('Find failed', err);
             } else {
-                console.log(result._id);
                 res.render('budget', {title:result.title, planiz: result})
             }
         });
     });
+
+    /* POST new destination option
+      * */
+    router.post('/addDestination/:planiz_id', urlEncodedParser, function (req, res) {
+        console.log("Je suis ici et id = "+req.params.planiz_id)
+        var o_id = new mongo.ObjectID(req.params.planiz_id);
+        db.collection("planiz").update({"_id": o_id}, { $push: { destinations: req.body.newoption } }, function(err, added) {
+            if( err || !added ) {
+                console.log("Destination not added.");
+                callback(null,added);
+            }
+            else {
+                console.log("Destination"+req.body.newoption+"added to "+o_id);
+                res.redirect('/'+req.params.planiz_id+'/destination');
+            }
+        });
+    });
+
+
+
+
 });
 
 module.exports = router;
