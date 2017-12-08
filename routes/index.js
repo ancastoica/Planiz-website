@@ -113,6 +113,19 @@ MongoClient.connect("mongodb://localhost/bdd_planiz", function(err, db) {
         });
     });
 
+    /* GET logout */
+    router.get('/:planiz_id/logout', function (req, res) {
+        req.session.destroy(function(err){
+            if(err){
+                console.log(err);
+            }
+            else
+            {
+                res.redirect('/'+req.params.planiz_id+'/login');
+            }
+        });
+    });
+
     /* GET login page for planiz_id */
     router.get('/:planiz_id/:user_id/login', function (req, res) {
         var o_id = new mongo.ObjectID(req.params.planiz_id);

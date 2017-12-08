@@ -4,9 +4,16 @@
 <head>
     <%include partials/head.html%>
 
-  <link rel='stylesheet' href='/stylesheets/login.css' />
+  <link rel='stylesheet' href='/stylesheets/form.css' />
+  <link rel='stylesheet' href='/stylesheets/loginInput.css' />
   <script src='/javascripts/jquery.min.js'></script>
   <script language="JavaScript" type="text/javascript" src="/javascripts/login.js"></script>
+
+  <!-- Bootstrap-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -20,9 +27,9 @@
         <label for="url">Planiz URL</label>
       </div>
 
-      <button type="submit" class="button buttonBlue">Go!</button>
+      <button type="submit" class="btn btn-lg btn-block">Go!</button>
 
-      <button type="button" class="button buttonBlue" onclick="window.location.href='/createPlaniz'">Create Planiz</button>
+      <button type="button" class="btn btn-lg btn-block" onclick="window.location.href='/createPlaniz'">Create Planiz</button>
     </form>
 </body>
 </html>

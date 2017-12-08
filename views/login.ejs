@@ -4,9 +4,8 @@
 <head>
     <%include partials/head.html%>
 
-    <link rel='stylesheet' href='/stylesheets/login.css' />
+    <link rel='stylesheet' href='/stylesheets/form.css' />
     <script src='/javascripts/jquery.min.js'></script>
-
 
     <!-- Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
@@ -24,7 +23,7 @@
 
         <% if(planiz.users) {
             for(var i=0; i<planiz.users.length; i++) {%>
-                <a type="button" class="btn btn-primary btn-lg btn-block" href= ../<%= planiz._id %>/<%= planiz.users[i].id %>/login ><%= planiz.users[i].name %></a>
+                <button type="button" class="btn btn-lg btn-block" onclick="window.location.href=' ../<%= planiz._id %>/<%= planiz.users[i].id %>/login'" ><%= planiz.users[i].name %></button>
         <% } } %>
 
         <!-- Button trigger fenetre modal -->
