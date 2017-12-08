@@ -2,17 +2,17 @@
 
     <header class="demo-drawer-header">
         <div class="mdl-layout-title">
-            <span>Planiz</span>
+            <span>Hello, <%= user.name %>!</span>
             <div class="mdl-layout-spacer"></div>
 
         </div>
     </header>
 
     <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
-        <a class="mdl-navigation__link" href=../<%= planiz._id%>/dashboard><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Home</a>
-        <a class="mdl-navigation__link" href=../<%= planiz._id%>/dates><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i>Dates</a>
-        <a class="mdl-navigation__link" href=../<%= planiz._id%>/destination><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">flag</i>Destination</a>
-        <a class="mdl-navigation__link" href=../<%= planiz._id%>/budget><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">local_offer</i>Budget</a>
+        <a class="mdl-navigation__link" href=../../<%= planiz._id%>/<%= user.id %>/dashboard><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Home</a>
+        <a class="mdl-navigation__link" href=../../<%= planiz._id%>/<%= user.id %>/dates><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i>Dates</a>
+        <a class="mdl-navigation__link" href=../../<%= planiz._id%>/<%= user.id %>/destination><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">flag</i>Destination</a>
+        <a class="mdl-navigation__link" href=../../<%= planiz._id%>/<%= user.id %>/budget><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">local_offer</i>Budget</a>
 
         <div class="mdl-layout-spacer"></div>
         <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>
