@@ -21,5 +21,7 @@ $ npm install
 ```
 
 ## Lancement
+
 Executer bin/www
+
 Aller sur http://localhost:3000 pour voir les résultats
