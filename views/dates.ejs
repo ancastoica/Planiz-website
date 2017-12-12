@@ -5,12 +5,12 @@
     <!-- Documentation pour le calendar: https://fullcalendar.io/ -->
 
     <%include partials/head.html%>
+
     <link href='/stylesheets/fullcalendar.min.css' rel='stylesheet' />
     <link href='/stylesheets/fullcalendar.print.min.css' rel='stylesheet' media='print' />
 
     <!-- Calendar scripts -->
 
-    <script src='/javascripts/jquery.min.js'></script>
     <script src='/javascripts/moment.min.js'></script>
     <script src='/javascripts/fullcalendar.min.js'></script>
 
@@ -55,19 +55,20 @@
 </head>
 
 <body>
-<div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+    <%include partials/share_planiz_modal.ejs%>
+    <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
 
-    <%include partials/header.html%>
-    <%include partials/left_menu.ejs%>
+        <%include partials/header.html%>
+        <%include partials/left_menu.ejs%>
 
-    <main class="mdl-layout__content mdl-color--grey-100">
-        <div class="mdl-grid demo-content">
-            <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
-                <div id='calendar' name="calendar"></div>
+        <main class="mdl-layout__content mdl-color--grey-100">
+            <div class="mdl-grid demo-content">
+                <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+                    <div id='calendar' name="calendar"></div>
+                </div>
             </div>
-        </div>
-    </main>
-</div>
+        </main>
+    </div>
 
 </body>
 </html>

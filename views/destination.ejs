@@ -3,73 +3,70 @@
 
 <head>
     <%include partials/head.html%>
-
-    <!-- Bootstrap-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 </head>
 
 <body>
-<div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+    <%include partials/share_planiz_modal.ejs%>
+    <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
 
-    <%include partials/header.html%>
-    <%include partials/left_menu.ejs%>
+        <%include partials/header.html%>
+        <%include partials/left_menu.ejs%>
 
-    <main class="mdl-layout__content mdl-color--grey-100">
-        <div class="mdl-grid demo-content">
-            <div class="demo-options mdl-card mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--8-col">
-                <div class="mdl-card__supporting-text">
-                    <h3>Destination options</h3>
-
-                    <br>
-
-                    <!-- Liste avec destinations présentes dans la bdd -->
-                    <ul>
-                        <% if(planiz.destinations){
-                            for(var i=0; i<planiz.destinations.length; i++) {%>
-
-                                <li>
-                                    <label for=checkbox<%=i%> class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
-                                        <input type="checkbox" id=checkbox<%=i%> class="mdl-checkbox__input">
-                                        <span class="mdl-checkbox__label"><%= planiz.destinations[i] %></span>
-                                    </label>
-                                </li>
-                        <% } }%>
+        <main class="mdl-layout__content mdl-color--grey-100">
+            <div class="mdl-grid demo-content">
+                <div class="demo-options mdl-card mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--8-col">
+                    <div class="mdl-card__supporting-text">
+                        <h3>Destination options</h3>
 
                         <br>
 
-                        <!-- Formulaire pour rajouter une nouvelle destination -->
-                        <li>
-                            <form action=../../<%= planiz._id %>/<%= user.id %>/addDestination method='post'>
-                                <fieldset>
-                                    <div class="col-lg-6">
-                                        <div class="input-group">
-                                            <input name="newoption" type="text" class="form-control" placeholder="Other..." aria-label="Other...">
-                                            <span class="input-group-btn">
-                                                <button class="btn btn-secondary" type="submit">Add</button>
-                                            </span>
+                        <!-- Liste avec destinations présentes dans la bdd -->
+                        <ul>
+                            <% if(planiz.destinations){
+                                for(var i=0; i<planiz.destinations.length; i++) {%>
+
+                                    <li>
+                                        <label for=checkbox<%=i%> class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                            <input type="checkbox" id=checkbox<%=i%> class="mdl-checkbox__input">
+                                            <span class="mdl-checkbox__label"><%= planiz.destinations[i] %></span>
+                                        </label>
+                                    </li>
+                            <% } }%>
+
+                            <br>
+
+                            <!-- Formulaire pour rajouter une nouvelle destination -->
+                            <li>
+                                <form action=../../<%= planiz._id %>/<%= user.id %>/addDestination method='post'>
+                                    <fieldset>
+                                        <div class="col-lg-6">
+                                            <div class="input-group">
+                                                <input name="newoption" type="text" class="form-control" placeholder="Other..." aria-label="Other...">
+                                                <span class="input-group-btn">
+                                                    <button class="btn btn-secondary" type="submit">Add</button>
+                                                </span>
+                                            </div>
                                         </div>
-                                    </div>
-                                </fieldset>
-                            </form>
-                        </li>
-                    </ul>
+                                    </fieldset>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Validation vote -->
+
+                    <div class="mdl-card__actions mdl-card--border">
+                        <a href="#" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-color-text--white">Vote</a>
+                        <div class="mdl-layout-spacer"></div>
+                    </div>
+
+
                 </div>
-
-                <!-- Validation vote -->
-
-                <div class="mdl-card__actions mdl-card--border">
-                    <a href="#" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-color-text--white">Vote</a>
-                    <div class="mdl-layout-spacer"></div>
-                </div>
-
 
             </div>
 
-        </div>
-
-    </main>
-</div>
+        </main>
+    </div>
 
 </body>
 </html>
