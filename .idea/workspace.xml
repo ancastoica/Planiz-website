@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="df8240b1-0581-4638-bda2-0bf6e6ffe2dc" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
+      <change beforePath="$PROJECT_DIR$/routes/createPlaniz.js" afterPath="$PROJECT_DIR$/routes/createPlaniz.js" />
+      <change beforePath="$PROJECT_DIR$/routes/dates.js" afterPath="$PROJECT_DIR$/routes/dates.js" />
       <change beforePath="$PROJECT_DIR$/views/dates.ejs" afterPath="$PROJECT_DIR$/views/dates.ejs" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -28,8 +31,8 @@
       <file leaf-file-name="createPlaniz.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/createPlaniz.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="39" column="68" lean-forward="true" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="68" />
+            <state relative-caret-position="69">
+              <caret line="22" column="81" lean-forward="false" selection-start-line="22" selection-start-column="81" selection-end-line="22" selection-end-column="81" />
               <folding />
             </state>
           </provider>
@@ -38,8 +41,8 @@
       <file leaf-file-name="login.ejs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/login.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="59" lean-forward="false" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="59" />
+            <state relative-caret-position="325">
+              <caret line="19" column="51" lean-forward="false" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="51" />
               <folding>
                 <element signature="e#1384#1391#1#HTML" expanded="true" />
               </folding>
@@ -47,21 +50,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="createPlaniz.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/createPlaniz.ejs">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25">
-              <caret line="16" column="32" lean-forward="false" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="32" />
+            <state relative-caret-position="48">
+              <caret line="63" column="61" lean-forward="false" selection-start-line="63" selection-start-column="61" selection-end-line="63" selection-end-column="61" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboard.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/dashboard.ejs">
+      <file leaf-file-name="userManagement.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/userManagement.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="8" column="4" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="47" />
+            <state relative-caret-position="374">
+              <caret line="64" column="11" lean-forward="true" selection-start-line="64" selection-start-column="8" selection-end-line="64" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -70,18 +73,8 @@
       <file leaf-file-name="dates.ejs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/dates.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="45" column="16" lean-forward="true" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dates.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/dates.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-25">
-              <caret line="11" column="50" lean-forward="false" selection-start-line="11" selection-start-column="50" selection-end-line="11" selection-end-column="50" />
+            <state relative-caret-position="72">
+              <caret line="60" column="30" lean-forward="true" selection-start-line="60" selection-start-column="30" selection-end-line="60" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -90,18 +83,8 @@
       <file leaf-file-name="destination.ejs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/destination.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="344">
-              <caret line="68" column="10" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="68" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="left_menu.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/partials/left_menu.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state relative-caret-position="1325">
+              <caret line="65" column="18" lean-forward="true" selection-start-line="65" selection-start-column="18" selection-end-line="65" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -112,6 +95,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="423">
               <caret line="20" column="43" lean-forward="true" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dates.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/dates.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1225">
+              <caret line="49" column="45" lean-forward="false" selection-start-line="49" selection-start-column="45" selection-end-line="49" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -131,8 +124,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>users</find>
-      <find>create</find>
       <find>uuid</find>
       <find>options</find>
       <find>demo-con</find>
@@ -161,6 +152,8 @@
       <find>budget</find>
       <find>destination</find>
       <find>index</find>
+      <find>update</find>
+      <find>]</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -187,13 +180,10 @@
         <option value="$PROJECT_DIR$/public/stylesheets/form.css" />
         <option value="$PROJECT_DIR$/views/partials/left_menu.ejs" />
         <option value="$PROJECT_DIR$/routes/budget.js" />
-        <option value="$PROJECT_DIR$/routes/dates.js" />
         <option value="$PROJECT_DIR$/routes/destination.js" />
         <option value="$PROJECT_DIR$/routes/dashboard.js" />
         <option value="$PROJECT_DIR$/routes/user_management.js" />
         <option value="$PROJECT_DIR$/routes/userManagement.js" />
-        <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/routes/createPlaniz.js" />
         <option value="$PROJECT_DIR$/views/partials/head.html" />
         <option value="$PROJECT_DIR$/views/login.ejs" />
         <option value="$PROJECT_DIR$/views/partials/header.html" />
@@ -204,6 +194,9 @@
         <option value="$PROJECT_DIR$/views/createPlaniz.ejs" />
         <option value="$PROJECT_DIR$/views/index.ejs" />
         <option value="$PROJECT_DIR$/routes/index.js" />
+        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/routes/createPlaniz.js" />
+        <option value="$PROJECT_DIR$/routes/dates.js" />
         <option value="$PROJECT_DIR$/views/dates.ejs" />
       </list>
     </option>
@@ -413,7 +406,7 @@
       <workItem from="1512721317957" duration="8260000" />
       <workItem from="1512733827498" duration="2997000" />
       <workItem from="1513080624446" duration="8226000" />
-      <workItem from="1513106422562" duration="3122000" />
+      <workItem from="1513106422562" duration="15576000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1512668333523</created>
@@ -534,11 +527,18 @@
       <option name="project" value="LOCAL" />
       <updated>1513108687930</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="add user's name when selecting time range in calendar">
+      <created>1513110432801</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1513110432801</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58988000" />
+    <option name="totallyTimeSpent" value="71442000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
@@ -595,7 +595,8 @@
     <MESSAGE value="changed button color in add user modal" />
     <MESSAGE value="add share planiz link in modal" />
     <MESSAGE value="make redirections for planiz url entered on homepage" />
-    <option name="LAST_COMMIT_MESSAGE" value="make redirections for planiz url entered on homepage" />
+    <MESSAGE value="add user's name when selecting time range in calendar" />
+    <option name="LAST_COMMIT_MESSAGE" value="add user's name when selecting time range in calendar" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -825,22 +826,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1025">
-          <caret line="41" column="29" lean-forward="false" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/userManagement.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/partials/head.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="475">
@@ -862,7 +847,7 @@
         <state relative-caret-position="444">
           <caret line="19" column="6" lean-forward="false" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
           <folding>
-            <element signature="e#501#508#1#HTML" expanded="true" />
+            <element signature="e#501#508#1#HTML" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -883,52 +868,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/destination.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="68" column="10" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="68" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/login.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="59" lean-forward="false" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="59" />
-          <folding>
-            <element signature="e#1384#1391#1#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/dates.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-25">
-          <caret line="11" column="50" lean-forward="false" selection-start-line="11" selection-start-column="50" selection-end-line="11" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/createPlaniz.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="39" column="68" lean-forward="true" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="423">
           <caret line="20" column="43" lean-forward="true" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/createPlaniz.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="16" column="32" lean-forward="false" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="32" />
           <folding />
         </state>
       </provider>
@@ -949,10 +892,68 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/createPlaniz.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="16" column="32" lean-forward="false" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/userManagement.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="64" column="11" lean-forward="true" selection-start-line="64" selection-start-column="8" selection-end-line="64" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/createPlaniz.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="22" column="81" lean-forward="false" selection-start-line="22" selection-start-column="81" selection-end-line="22" selection-end-column="81" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/login.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="19" column="51" lean-forward="false" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="51" />
+          <folding>
+            <element signature="e#1384#1391#1#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="63" column="61" lean-forward="false" selection-start-line="63" selection-start-column="61" selection-end-line="63" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/dates.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1225">
+          <caret line="49" column="45" lean-forward="false" selection-start-line="49" selection-start-column="45" selection-end-line="49" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/destination.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1325">
+          <caret line="65" column="18" lean-forward="true" selection-start-line="65" selection-start-column="18" selection-end-line="65" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/views/dates.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="45" column="16" lean-forward="true" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
+        <state relative-caret-position="72">
+          <caret line="60" column="30" lean-forward="true" selection-start-line="60" selection-start-column="30" selection-end-line="60" selection-end-column="30" />
           <folding />
         </state>
       </provider>

@@ -61,4 +61,20 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+app.locals.addEvent = function(planiz_id, username, eventData){
+    var MongoClient = require('mongodb').MongoClient;
+    var mongo = require('mongodb');
+    MongoClient.connect("mongodb://localhost/bdd_planiz", function(err, db) {
+        if (err) return funcCallback(err);
+        var newObj = eventData;
+        var o_id = new mongo.ObjectID(planiz_id);
+        db.collection("planiz").update({"_id": o_id}, {"users.name":username}, { $push: { "users.$.availabilities" : newObj } }, function(err, added) {
+            if (err || !added) {
+                console.log("User not added.");
+                callback(null, added);
+            }
+        });
+    });
+}
+
 module.exports = app;

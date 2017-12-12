@@ -38,16 +38,32 @@
                             end: end
                         };
                         $('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
+                        $.ajax({
+                            url: '/<%= planiz._id%>/<%= user.id %>/addEvent',
+                            data: JSON.stringify(eventData),
+                            contentType: 'application/json',
+                            type: "POST",
+                            success: function () {
+                                alert('Added Successfully');
+                            }
+                        });
                     }
                     $('#calendar').fullCalendar('unselect');
                 },
                 editable: true,
                 eventLimit: true, // allow "more" link when too many events
-                events: [
-                    {
-                        title: 'Exemple',
-                        start: '2017-11-12T17:30:00'
-                    }
+                events: [ <% for(var i=0; i<events.length-1; i++) { %>
+                                {
+                                    title: '<%= events[i].title%>',
+                                    start: '<%= events[i].start%>',
+                                    end: '<%= events[i].end%>'
+                                },
+                        <% }%>
+                        {
+                            title: '<%= events[events.length-1].title%>',
+                            start: '<%= events[events.length-1].start%>',
+                            end: '<%= events[events.length-1].end%>'
+                        }
                 ]
             });
         });

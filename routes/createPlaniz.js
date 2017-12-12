@@ -20,7 +20,7 @@ MongoClient.connect("mongodb://localhost/bdd_planiz", function(err, db) {
     router.post('/createPlaniz', urlEncodedParser, function (req, res) {
         planiz_object = req.body;
         var id_user = uuidv1(); //random id user
-        var user = {id: id_user, name: planiz_object.username};
+        var user = {id: id_user, name: planiz_object.username, availabilities: []};
 
         var newObj = {
             title: planiz_object.title,
