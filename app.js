@@ -6,6 +6,12 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
+var dates = require('./routes/dates');
+var budget = require('./routes/budget');
+var destination = require('./routes/destination');
+var dashboard = require('./routes/dashboard');
+var createPlaniz = require('./routes/createPlaniz');
+var userManagement = require('./routes/userManagement');
 
 var app = express();
 
@@ -29,6 +35,13 @@ app.use(session({
 }));
 
 app.use('/', index);
+app.use('/', dates);
+app.use('/', budget);
+app.use('/', destination);
+app.use('/', dashboard);
+app.use('/', userManagement);
+app.use('/', createPlaniz);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
