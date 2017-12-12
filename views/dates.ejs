@@ -29,7 +29,7 @@
                 selectable: true,
                 selectHelper: true,
                 select: function(start, end) {
-                    var title = prompt('Event Title:');
+                    var title = "<%= user.name%>";
                     var eventData;
                     if (title) {
                         eventData = {
