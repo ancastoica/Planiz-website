@@ -13,11 +13,62 @@
         <%include partials/left_menu.ejs%>
 
         <main class="mdl-layout__content mdl-color--grey-100">
-            <div class="mdl-grid demo-content">
 
-                <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
-                    <p>Description: <%= planiz.description %></p>
+            <div class="demo-content">
+
+                <br>
+
+                <!-- Description -->
+                <div class="mdl-color--white mdl-shadow--2dp center-block">
+                    <div class="card mb-3 text-center">
+                        <div class="card-block">
+                            <p class="card-text text-muted">Description: <%= planiz.description %></p>
+                        </div>
+                    </div>
+
                 </div>
+                <div class="mdl-grid">
+
+
+                    <!-- Dates -->
+                    <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
+                        <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
+                            <div class="card">
+                                <div class="card-block ">
+                                        <h2 class="card-title"><i class="material-icons" role="presentation">date_range</i>   Dates</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Destination -->
+                    <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
+                        <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
+                            <div class="card">
+                                <div class="card-block ">
+                                    <h2 class="card-title"><i class="material-icons" role="presentation">map</i>   Destination</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Budget -->
+                    <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
+                        <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
+                            <div class="card">
+                                <div class="card-block ">
+                                    <h2 class="card-title"><i class="material-icons" role="presentation">deuro_symbol</i>   Budget</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+
+
 
             </div>
 
