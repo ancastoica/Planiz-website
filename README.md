@@ -22,6 +22,6 @@ $ npm install
 
 ## Lancement
 
-Executer bin/www
-
-Aller sur http://localhost:3000 pour voir les résultats
+- S'assurer que le serveur Mongo tourne (mongod / mongod.exe)
+- Executer bin/www
+- Aller sur http://localhost:3000 pour voir les résultats
