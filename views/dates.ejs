@@ -52,19 +52,22 @@
                 },
                 editable: true,
                 eventLimit: true, // allow "more" link when too many events
-                events: [ <% for(var i=0; i<events.length-1; i++) { %>
+                events: [
+                    <% if(events[0]){
+                            for(var i=0; i<events.length-1; i++) { %>
                                 {
                                     title: '<%= events[i].title%>',
                                     start: '<%= events[i].start%>',
                                     end: '<%= events[i].end%>',
                                     className: 'success'
                                 },
-                        <% }%>
-                        {
-                            title: '<%= events[events.length-1].title%>',
-                            start: '<%= events[events.length-1].start%>',
-                            end: '<%= events[events.length-1].end%>'
-                        }
+                            <% }%>
+                            {
+                                title: '<%= events[events.length-1].title%>',
+                                start: '<%= events[events.length-1].start%>',
+                                end: '<%= events[events.length-1].end%>'
+                            }
+                    <% } %>
                 ]
             });
         });

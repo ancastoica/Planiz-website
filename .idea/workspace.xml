@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="df8240b1-0581-4638-bda2-0bf6e6ffe2dc" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/views/budget.ejs" afterPath="$PROJECT_DIR$/views/budget.ejs" />
       <change beforePath="$PROJECT_DIR$/views/dashboard.ejs" afterPath="$PROJECT_DIR$/views/dashboard.ejs" />
       <change beforePath="$PROJECT_DIR$/views/dates.ejs" afterPath="$PROJECT_DIR$/views/dates.ejs" />
     </list>
@@ -17,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="dates.ejs" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dates.ejs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/dates.ejs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="269">
-              <caret line="99" column="79" lean-forward="true" selection-start-line="99" selection-start-column="32" selection-end-line="99" selection-end-column="79" />
+              <caret line="63" column="34" lean-forward="true" selection-start-line="63" selection-start-column="34" selection-end-line="63" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -30,8 +29,8 @@
       <file leaf-file-name="dashboard.ejs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/dashboard.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="24" column="83" lean-forward="false" selection-start-line="24" selection-start-column="77" selection-end-line="24" selection-end-column="83" />
+            <state relative-caret-position="269">
+              <caret line="18" column="20" lean-forward="true" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -80,7 +79,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="budget.ejs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="budget.ejs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/budget.ejs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="269">
@@ -90,11 +89,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fullcalendar.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/stylesheets/fullcalendar.css">
+      <file leaf-file-name="createPlaniz.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/createPlaniz.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2275">
-              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+            <state relative-caret-position="25">
+              <caret line="16" column="32" lean-forward="false" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -208,9 +207,9 @@
         <option value="$PROJECT_DIR$/public/stylesheets/fullcalendar.min.css" />
         <option value="$PROJECT_DIR$/routes/dates.js" />
         <option value="$PROJECT_DIR$/public/stylesheets/styles.css" />
-        <option value="$PROJECT_DIR$/views/dates.ejs" />
-        <option value="$PROJECT_DIR$/views/dashboard.ejs" />
         <option value="$PROJECT_DIR$/views/budget.ejs" />
+        <option value="$PROJECT_DIR$/views/dashboard.ejs" />
+        <option value="$PROJECT_DIR$/views/dates.ejs" />
       </list>
     </option>
   </component>
@@ -256,18 +255,7 @@
             <path>
               <item name="Planiz-website" type="b2602c69:ProjectViewProjectNode" />
               <item name="Planiz-website" type="462c0819:PsiDirectoryNode" />
-              <item name="bin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Planiz-website" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Planiz-website" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Planiz-website" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Planiz-website" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="javascripts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Planiz-website" type="b2602c69:ProjectViewProjectNode" />
@@ -433,7 +421,7 @@
       <workItem from="1513080624446" duration="8226000" />
       <workItem from="1513106422562" duration="16564000" />
       <workItem from="1513163995258" duration="731000" />
-      <workItem from="1513172664941" duration="7570000" />
+      <workItem from="1513172664941" duration="9074000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1512668333523</created>
@@ -575,11 +563,18 @@
       <option name="project" value="LOCAL" />
       <updated>1513176796442</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="stylization frontend">
+      <created>1513182384452</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1513182384452</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80731000" />
+    <option name="totallyTimeSpent" value="82235000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
@@ -638,7 +633,8 @@
     <MESSAGE value="add user's name when selecting time range in calendar" />
     <MESSAGE value="add user availabilities to database; show all availabilities in calendar" />
     <MESSAGE value="minor changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor changes" />
+    <MESSAGE value="stylization frontend" />
+    <option name="LAST_COMMIT_MESSAGE" value="stylization frontend" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -864,13 +860,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/createPlaniz.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="16" column="32" lean-forward="false" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/userManagement.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1600">
@@ -962,14 +951,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/dates.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="99" column="79" lean-forward="true" selection-start-line="99" selection-start-column="32" selection-end-line="99" selection-end-column="79" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/partials/left_menu.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -986,10 +967,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/budget.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="18" column="34" lean-forward="false" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/createPlaniz.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="16" column="32" lean-forward="false" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/views/dashboard.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="24" column="83" lean-forward="false" selection-start-line="24" selection-start-column="77" selection-end-line="24" selection-end-column="83" />
+        <state relative-caret-position="269">
+          <caret line="18" column="20" lean-forward="true" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -1002,10 +999,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/budget.ejs">
+    <entry file="file://$PROJECT_DIR$/views/dates.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="269">
-          <caret line="18" column="34" lean-forward="false" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+          <caret line="63" column="34" lean-forward="true" selection-start-line="63" selection-start-column="34" selection-end-line="63" selection-end-column="34" />
           <folding />
         </state>
       </provider>
