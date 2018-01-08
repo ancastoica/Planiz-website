@@ -3,6 +3,30 @@
 
 <head>
     <%include partials/head.html%>
+
+    <script>
+        $(document).ready(function() {
+            $('.mdl-checkbox__input').click(function() {
+                var data = $(this).attr("name");
+
+                if($(this).is(":checked")){
+                    $.ajax({
+                        url: '/<%= planiz._id%>/<%= user.id %>/addDestinationVote',
+                        data: data,
+                        type: 'post',
+                        dataType: 'json',
+                    });
+                } else{
+                    $.ajax({
+                        url: '/<%= planiz._id%>/<%= user.id %>/removeDestinationVote',
+                        data: data,
+                        type: 'post',
+                        dataType: 'json',
+                    });
+                }
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -27,40 +51,43 @@
 
                                     <li>
                                         <label for=checkbox<%=i%> class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
-                                            <input type="checkbox" id=checkbox<%=i%> class="mdl-checkbox__input">
+                                            <%
+                                                // Check if user has already checked some destinations
+                                                if(planiz.users) {
+                                                    for (var j = 0; j < planiz.users.length; j++) {
+                                                        if (planiz.users[j].id == user.id && planiz.users[j].destinations.indexOf(planiz.destinations[i]) >= 0) {
+                                                            var checked = "checked";
+                                                        }
+                                                        else {
+                                                            var checked = "";
+                                                        }
+                                                    }
+                                                }
+                                            %>
+                                            <input type="checkbox" id=checkbox<%=i%> name=<%= planiz.destinations[i] %> class="mdl-checkbox__input" <%= checked %>>
                                             <span class="mdl-checkbox__label"><%= planiz.destinations[i] %></span>
                                         </label>
                                     </li>
                             <% } }%>
 
                             <br>
+                        </ul>
 
-                            <!-- Formulaire pour rajouter une nouvelle destination -->
-                            <li>
-                                <form action=../../<%= planiz._id %>/<%= user.id %>/addDestination method='post'>
-                                    <fieldset>
-                                        <div class="col-lg-6">
-                                            <div class="input-group">
-                                                <input name="newoption" type="text" class="form-control" placeholder="Other..." aria-label="Other...">
-                                                <span class="input-group-btn">
+                        <!-- Formulaire pour rajouter une nouvelle destination -->
+                        <form action=../../<%= planiz._id %>/<%= user.id %>/addDestination method='post'>
+                            <fieldset>
+                                <div class="col-lg-6">
+                                    <div class="input-group">
+                                        <input name="newoption" type="text" class="form-control" placeholder="Other..." aria-label="Other...">
+                                        <span class="input-group-btn">
                                                     <button class="btn btn-secondary" type="submit">Add</button>
                                                 </span>
-                                            </div>
-                                        </div>
-                                    </fieldset>
-                                </form>
-                            </li>
-                        </ul>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+
                     </div>
-
-                    <!-- Validation vote -->
-
-                    <div class="mdl-card__actions mdl-card--border">
-                        <a href="#" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-color-text--white">Vote</a>
-                        <div class="mdl-layout-spacer"></div>
-                    </div>
-
-
                 </div>
 
             </div>
