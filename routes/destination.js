@@ -36,7 +36,7 @@ MongoClient.connect("mongodb://localhost/bdd_planiz", function(err, db) {
       * */
     router.post('/:planiz_id/:user_id/addDestination', urlEncodedParser, function (req, res) {
         var o_id = new mongo.ObjectID(req.params.planiz_id);
-        db.collection("planiz").update({"_id": o_id}, { $push: { destinations: req.body.newoption } }, function(err, added) {
+        db.collection("planiz").update({"_id": o_id}, { $push: { destinations: {name: req.body.newoption, no: 0} } }, function(err, added) {
             if( err || !added ) {
                 callback(null,added);
             }
@@ -59,6 +59,43 @@ MongoClient.connect("mongodb://localhost/bdd_planiz", function(err, db) {
                 callback(null,added);
             }
             else {
+                db.collection("planiz").update({"_id": o_id, "destinations.name":Object.keys(eventJ)[0]}, { $inc: { "destinations.$.no": 1  } }, function(err, res) {
+                    if( err || !res ) {
+                        callback(null,res);
+                    }
+                    else{
+                        db.collection("planiz").findOne({"_id": o_id}, function(err, r) {
+                            if( err || !r ) {
+                                callback(null,r);
+                            }
+                            else{
+                                var destinations = r.destinations;
+                                var bestDest = []
+
+                                if(destinations && destinations.length > 0){
+                                    function compare(a,b) {
+                                        if (a.no < b.no)
+                                            return 1;
+                                        if (a.no > b.no)
+                                            return -1;
+                                        return 0;
+                                    }
+                                    destinations.sort(compare);
+                                    bestDest[0]=destinations[0];
+                                    if(destinations.length > 1){
+                                        bestDest[1]=destinations[1];
+                                    }
+                                    db.collection("planiz").update({"_id": o_id}, { $set: { bestDestinations: bestDest } }, function(err, added) {
+                                        if( err || !added ) {
+                                            callback(null,added);
+                                        }
+                                    });
+                                }
+                            }
+                        });
+                    }
+
+                });
                 console.log("Destination added to "+o_id);
                 res.redirect('/'+req.params.planiz_id+'/'+req.params.user_id+'/destination');
             }
@@ -77,6 +114,43 @@ MongoClient.connect("mongodb://localhost/bdd_planiz", function(err, db) {
                 callback(null,added);
             }
             else {
+                db.collection("planiz").update({"_id": o_id, "destinations.name":Object.keys(eventJ)[0]}, { $inc: { "destinations.$.no": -1  } }, function(err, added) {
+                    if( err || !added ) {
+                        console.log("Vote not added.");
+                        callback(null,added);
+                    }
+                    else{
+                        db.collection("planiz").findOne({"_id": o_id}, function(err, r) {
+                            if( err || !r ) {
+                                callback(null,r);
+                            }
+                            else{
+                                var destinations = r.destinations;
+                                var bestDest = []
+
+                                if(destinations && destinations.length > 0){
+                                    function compare(a,b) {
+                                        if (a.no < b.no)
+                                            return 1;
+                                        if (a.no > b.no)
+                                            return -1;
+                                        return 0;
+                                    }
+                                    destinations.sort(compare);
+                                    bestDest[0]=destinations[0];
+                                    if(destinations.length > 1){
+                                        bestDest[1]=destinations[1];
+                                    }
+                                    db.collection("planiz").update({"_id": o_id}, { $set: { bestDestinations: bestDest } }, function(err, added) {
+                                        if( err || !added ) {
+                                            callback(null,added);
+                                        }
+                                    });
+                                }
+                            }
+                        });
+                    }
+                });
                 res.redirect('/'+req.params.planiz_id+'/'+req.params.user_id+'/destination');
             }
         });

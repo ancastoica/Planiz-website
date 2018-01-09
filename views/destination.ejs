@@ -24,6 +24,7 @@
                         dataType: 'json',
                     });
                 }
+                window.location.reload(true);
             });
         });
     </script>
@@ -38,6 +39,8 @@
 
         <main class="mdl-layout__content mdl-color--grey-100">
             <div class="mdl-grid demo-content">
+
+
                 <div class="demo-options mdl-card mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--8-col">
                     <div class="mdl-card__supporting-text">
                         <h3>Destination options</h3>
@@ -55,7 +58,7 @@
                                                 // Check if user has already checked some destinations
                                                 if(planiz.users) {
                                                     for (var j = 0; j < planiz.users.length; j++) {
-                                                        if (planiz.users[j].id == user.id && planiz.users[j].destinations.indexOf(planiz.destinations[i]) >= 0) {
+                                                        if (planiz.users[j].destinations && planiz.users[j].id == user.id && planiz.users[j].destinations.indexOf(planiz.destinations[i].name) >= 0) {
                                                             var checked = "checked";
                                                         }
                                                         else {
@@ -64,8 +67,14 @@
                                                     }
                                                 }
                                             %>
-                                            <input type="checkbox" id=checkbox<%=i%> name=<%= planiz.destinations[i] %> class="mdl-checkbox__input" <%= checked %>>
-                                            <span class="mdl-checkbox__label"><%= planiz.destinations[i] %></span>
+                                            <input type="checkbox" id=checkbox<%=i%> name=<%= planiz.destinations[i].name %> class="mdl-checkbox__input" <%= checked %>>
+                                            <div class="progress">
+                                                <div class="progress-bar" role="progressbar" aria-valuenow="70"
+                                                     aria-valuemin="0" aria-valuemax="100" style="width:<%= planiz.destinations[i].no*100/planiz.users.length %>%;height:25px">
+                                                    <span class="mdl-checkbox__label"><%= planiz.destinations[i].name %></span>
+                                                </div>
+                                            </div>
+
                                         </label>
                                     </li>
                             <% } }%>
@@ -86,6 +95,39 @@
                                 </div>
                             </fieldset>
                         </form>
+
+                    </div>
+                </div>
+
+
+
+                <!-- Section meilleures destinations -->
+
+                <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
+                    <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
+                        <div class="card">
+                            <div class="card-block">
+                                <h3 class="card-title">Prefered destination</h3>
+                            </div>
+                        </div>
+
+                        <!-- To Do: add best availabilities here -->
+
+                        <div class="card ">
+                            <div class="card-block">
+                                <% if(planiz.bestDestinations && planiz.bestDestinations.length > 0){ %>
+                                    <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+                                        <%= planiz.bestDestinations[0].no%>   <%= planiz.bestDestinations[0].name%>
+                                    </div>
+                                    <% if(planiz.bestDestinations.length > 1){ %>
+                                    <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+                                        <%= planiz.bestDestinations[1].no%>   <%= planiz.bestDestinations[1].name%>
+                                    </div>
+                                <%}}%>
+                            </div>
+                        </div>
+
+
 
                     </div>
                 </div>
