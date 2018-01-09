@@ -18,6 +18,22 @@
                     <div class="mdl-card__supporting-text">
                         <h3>Budget</h3>
 
+                        <form action=../../<%= planiz._id %>/<%= user.id %>/addBudget method='post'>
+                            <fieldset>
+                                <div class="col-lg-6">
+                                    <div class="input-group">
+                                        <input name="newoption" type="text" class="form-control" placeholder="100€" aria-label="Other...">
+                                        <span class="input-group-btn">
+                                                    <button class="btn btn-secondary" type="submit">Add</button>
+                                                </span>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+
+                        <h6>Votre budget est : <%= user.budget%> €</h6>
+                        <h6>Le budget du groupe est : <%= planiz.budgetMin%> </h6>
+
 
                     </div>
                 </div>

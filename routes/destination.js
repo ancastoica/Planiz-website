@@ -48,6 +48,8 @@ MongoClient.connect("mongodb://localhost/bdd_planiz", function(err, db) {
             }
         });
     });
+
+
 });
 
 module.exports = router;
