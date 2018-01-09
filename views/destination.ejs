@@ -3,6 +3,31 @@
 
 <head>
     <%include partials/head.html%>
+
+    <script>
+        $(document).ready(function() {
+            $('.mdl-checkbox__input').click(function() {
+                var data = $(this).attr("name");
+
+                if($(this).is(":checked")){
+                    $.ajax({
+                        url: '/<%= planiz._id%>/<%= user.id %>/addDestinationVote',
+                        data: data,
+                        type: 'post',
+                        dataType: 'json',
+                    });
+                } else{
+                    $.ajax({
+                        url: '/<%= planiz._id%>/<%= user.id %>/removeDestinationVote',
+                        data: data,
+                        type: 'post',
+                        dataType: 'json',
+                    });
+                }
+                window.location.reload(true);
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -14,6 +39,8 @@
 
         <main class="mdl-layout__content mdl-color--grey-100">
             <div class="mdl-grid demo-content">
+
+
                 <div class="demo-options mdl-card mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--8-col">
                     <div class="mdl-card__supporting-text">
                         <h3>Destination options</h3>
@@ -27,40 +54,82 @@
 
                                     <li>
                                         <label for=checkbox<%=i%> class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
-                                            <input type="checkbox" id=checkbox<%=i%> class="mdl-checkbox__input">
-                                            <span class="mdl-checkbox__label"><%= planiz.destinations[i] %></span>
+                                            <%
+                                                // Check if user has already checked some destinations
+                                                if(planiz.users) {
+                                                    for (var j = 0; j < planiz.users.length; j++) {
+                                                        if (planiz.users[j].destinations && planiz.users[j].id == user.id && planiz.users[j].destinations.indexOf(planiz.destinations[i].name) >= 0) {
+                                                            var checked = "checked";
+                                                        }
+                                                        else {
+                                                            var checked = "";
+                                                        }
+                                                    }
+                                                }
+                                            %>
+                                            <input type="checkbox" id=checkbox<%=i%> name=<%= planiz.destinations[i].name %> class="mdl-checkbox__input" <%= checked %>>
+                                            <div class="progress">
+                                                <div class="progress-bar" role="progressbar" aria-valuenow="70"
+                                                     aria-valuemin="0" aria-valuemax="100" style="width:<%= planiz.destinations[i].no*100/planiz.users.length %>%;height:25px">
+                                                    <span class="mdl-checkbox__label"><%= planiz.destinations[i].name %></span>
+                                                </div>
+                                            </div>
+
                                         </label>
                                     </li>
                             <% } }%>
 
                             <br>
+                        </ul>
 
-                            <!-- Formulaire pour rajouter une nouvelle destination -->
-                            <li>
-                                <form action=../../<%= planiz._id %>/<%= user.id %>/addDestination method='post'>
-                                    <fieldset>
-                                        <div class="col-lg-6">
-                                            <div class="input-group">
-                                                <input name="newoption" type="text" class="form-control" placeholder="Other..." aria-label="Other...">
-                                                <span class="input-group-btn">
+                        <!-- Formulaire pour rajouter une nouvelle destination -->
+                        <form action=../../<%= planiz._id %>/<%= user.id %>/addDestination method='post'>
+                            <fieldset>
+                                <div class="col-lg-6">
+                                    <div class="input-group">
+                                        <input name="newoption" type="text" class="form-control" placeholder="Other..." aria-label="Other...">
+                                        <span class="input-group-btn">
                                                     <button class="btn btn-secondary" type="submit">Add</button>
                                                 </span>
-                                            </div>
-                                        </div>
-                                    </fieldset>
-                                </form>
-                            </li>
-                        </ul>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+
                     </div>
+                </div>
 
-                    <!-- Validation vote -->
 
-                    <div class="mdl-card__actions mdl-card--border">
-                        <a href="#" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-color-text--white">Vote</a>
-                        <div class="mdl-layout-spacer"></div>
+
+                <!-- Section meilleures destinations -->
+
+                <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
+                    <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
+                        <div class="card">
+                            <div class="card-block">
+                                <h3 class="card-title">Prefered destination</h3>
+                            </div>
+                        </div>
+
+                        <!-- To Do: add best availabilities here -->
+
+                        <div class="card ">
+                            <div class="card-block">
+                                <% if(planiz.bestDestinations && planiz.bestDestinations.length > 0){ %>
+                                    <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+                                        <%= planiz.bestDestinations[0].no%>   <%= planiz.bestDestinations[0].name%>
+                                    </div>
+                                    <% if(planiz.bestDestinations.length > 1){ %>
+                                    <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+                                        <%= planiz.bestDestinations[1].no%>   <%= planiz.bestDestinations[1].name%>
+                                    </div>
+                                <%}}%>
+                            </div>
+                        </div>
+
+
+
                     </div>
-
-
                 </div>
 
             </div>

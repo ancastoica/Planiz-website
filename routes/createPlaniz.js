@@ -20,23 +20,24 @@ MongoClient.connect("mongodb://localhost/bdd_planiz", function(err, db) {
     router.post('/createPlaniz', urlEncodedParser, function (req, res) {
         planiz_object = req.body;
         var id_user = uuidv1(); //random id user
-        var user = {id: id_user, name: planiz_object.username, availabilities: []};
+        var user = {id: id_user, name: planiz_object.username, availabilities: [], destinations: [], budget: []};
 
-        var newObj = {
+        var planiz = {
             title: planiz_object.title,
             description: planiz_object.description,
             destinations: [],
+            bestDestinations: [],
             users: [user]
         };
 
         req.session.userId = id_user;
 
-        db.collection("planiz").insert(newObj, null, function (err, result) {
+        db.collection("planiz").insert(planiz, null, function (err, result) {
             if (err) {
                 throw err;
             } else {
 
-                var objectId = newObj._id;
+                var objectId = planiz._id;
                 res.redirect('/'+objectId+'/'+id_user+'/dashboard');
             }
         });
