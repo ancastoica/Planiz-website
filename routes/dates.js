@@ -4,9 +4,6 @@ var router = express.Router();
 var MongoClient = require('mongodb').MongoClient;
 var mongo = require('mongodb');
 
-var bodyParser = require('body-parser');
-var urlEncodedParser = bodyParser.urlencoded({extended: false});
-
 
 /* connexion à la bdd pour les pages spécifiques à 1 planiz*/
 MongoClient.connect("mongodb://localhost/bdd_planiz", function(err, db) {
@@ -28,7 +25,7 @@ MongoClient.connect("mongodb://localhost/bdd_planiz", function(err, db) {
                 var users = result.users;
                 var events = [];
                 for (var i = 0; i < users.length; i++) {
-                    if (users[i].id == req.params.user_id){
+                    if (users[i].id === req.params.user_id){
                         var user = users[i];
                     }
                     if (users[i].availabilities) {
@@ -122,7 +119,7 @@ MongoClient.connect("mongodb://localhost/bdd_planiz", function(err, db) {
                     if (d <= a[key] && diff === 1  ) {
                         end0 = key;
                         end1 = new Date(end0+"Z");
-                    } else if(k < keys.length-1){
+                    } else {
                         start0 = key;
                         end0 = key;
                         start1 = new Date(start0+"Z");

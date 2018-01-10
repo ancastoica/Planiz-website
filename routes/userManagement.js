@@ -4,9 +4,6 @@ var router = express.Router();
 var MongoClient = require('mongodb').MongoClient;
 var mongo = require('mongodb');
 
-var bodyParser = require('body-parser');
-var urlEncodedParser = bodyParser.urlencoded({extended: false});
-
 const uuidv1 = require('uuid/v1');
 
 
@@ -37,7 +34,7 @@ MongoClient.connect("mongodb://localhost/bdd_planiz", function(err, db) {
                 var users = result.users;
                 for (var i = 0; i < users.length; i++){
                     // look for the entry with a matching `user_id` value
-                    if (users[i].id == req.params.user_id){
+                    if (users[i].id === req.params.user_id){
                         var user = users[i];
                         req.session.userId = users[i].id;
                     }

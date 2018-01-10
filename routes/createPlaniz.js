@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 
 var MongoClient = require('mongodb').MongoClient;
-var mongo = require('mongodb');
 
 var bodyParser = require('body-parser');
 var urlEncodedParser = bodyParser.urlencoded({extended: false});

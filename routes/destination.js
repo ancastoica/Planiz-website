@@ -22,7 +22,7 @@ MongoClient.connect("mongodb://localhost/bdd_planiz", function(err, db) {
                 var users = result.users;
                 for (var i = 0; i < users.length; i++){
                     // look for the entry with a matching `user_id` value
-                    if (users[i].id == req.params.user_id){
+                    if (users[i].id === req.params.user_id){
                         var user = users[i];
                         req.session.userId = users[i].id;
                     }
@@ -49,7 +49,7 @@ MongoClient.connect("mongodb://localhost/bdd_planiz", function(err, db) {
     /* POST destination votes
     * * */
     router.post('/:planiz_id/:user_id/addDestinationVote', urlEncodedParser, function (req, res) {
-        console.log("Je suis ici et id = "+req.params.planiz_id)
+        console.log("Je suis ici et id = "+req.params.planiz_id);
         var event = JSON.stringify(req.body);
         var eventJ = JSON.parse(event);
         var o_id = new mongo.ObjectID(req.params.planiz_id);
@@ -70,7 +70,7 @@ MongoClient.connect("mongodb://localhost/bdd_planiz", function(err, db) {
                             }
                             else{
                                 var destinations = r.destinations;
-                                var bestDest = []
+                                var bestDest = [];
 
                                 if(destinations && destinations.length > 0){
                                     function compare(a,b) {
@@ -126,7 +126,7 @@ MongoClient.connect("mongodb://localhost/bdd_planiz", function(err, db) {
                             }
                             else{
                                 var destinations = r.destinations;
-                                var bestDest = []
+                                var bestDest = [];
 
                                 if(destinations && destinations.length > 0){
                                     function compare(a,b) {
