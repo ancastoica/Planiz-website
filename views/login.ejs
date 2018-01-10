@@ -10,11 +10,17 @@
 
 <body>
     <hgroup>
-        <h1>Planiz</h1>
-        <h4><%= planiz.title %></h4>
+        <img src="../../images/logo_big.png" width="25%" height="25%">
     </hgroup>
     <form action=../<%= planiz._id %>/addUser method='post'>
+        <h3><%= planiz.title %></h3>
+
+        <br>
+        <br>
+
         <h5>Who are you?</h5>
+
+        <br>
 
         <% if(planiz.users) {
             for(var i=0; i<planiz.users.length; i++) {%>
