@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="df8240b1-0581-4638-bda2-0bf6e6ffe2dc" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/routes/dates.js" afterPath="$PROJECT_DIR$/routes/dates.js" />
-      <change beforePath="$PROJECT_DIR$/views/dashboard.ejs" afterPath="$PROJECT_DIR$/views/dashboard.ejs" />
-      <change beforePath="$PROJECT_DIR$/views/destination.ejs" afterPath="$PROJECT_DIR$/views/destination.ejs" />
+      <change beforePath="$PROJECT_DIR$/views/budget.ejs" afterPath="$PROJECT_DIR$/views/budget.ejs" />
+      <change beforePath="$PROJECT_DIR$/views/partials/share_planiz_modal.ejs" afterPath="$PROJECT_DIR$/views/partials/share_planiz_modal.ejs" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,16 +21,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="149">
               <caret line="67" column="31" lean-forward="false" selection-start-line="67" selection-start-column="24" selection-end-line="67" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="left_menu.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/partials/left_menu.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="50">
-              <caret line="2" column="39" lean-forward="false" selection-start-line="2" selection-start-column="39" selection-end-line="2" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -90,16 +79,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dates.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/dates.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="113" column="82" lean-forward="true" selection-start-line="113" selection-start-column="82" selection-end-line="113" selection-end-column="82" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="destination.ejs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/destination.ejs">
           <provider selected="true" editor-type-id="text-editor">
@@ -112,11 +91,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboard.ejs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dashboard.ejs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/dashboard.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="24" column="31" lean-forward="false" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
+            <state relative-caret-position="675">
+              <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="share_planiz_modal.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/partials/share_planiz_modal.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="269">
+              <caret line="12" column="62" lean-forward="true" selection-start-line="12" selection-start-column="62" selection-end-line="12" selection-end-column="62" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="budget.ejs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/budget.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="35" column="28" lean-forward="false" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -203,7 +202,6 @@
         <option value="$PROJECT_DIR$/public/stylesheets/fullcalendar.css" />
         <option value="$PROJECT_DIR$/public/stylesheets/fullcalendar.print.css" />
         <option value="$PROJECT_DIR$/public/stylesheets/fullcalendar.min.css" />
-        <option value="$PROJECT_DIR$/views/budget.ejs" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/routes/destination.js" />
         <option value="$PROJECT_DIR$/routes/createPlaniz.js" />
@@ -218,6 +216,8 @@
         <option value="$PROJECT_DIR$/views/destination.ejs" />
         <option value="$PROJECT_DIR$/routes/dates.js" />
         <option value="$PROJECT_DIR$/views/dashboard.ejs" />
+        <option value="$PROJECT_DIR$/views/partials/share_planiz_modal.ejs" />
+        <option value="$PROJECT_DIR$/views/budget.ejs" />
       </list>
     </option>
   </component>
@@ -675,11 +675,18 @@
       <option name="project" value="LOCAL" />
       <updated>1515608105005</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="design uniformisé">
+      <created>1515609910823</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1515609910823</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="142294000" />
+    <option name="totallyTimeSpent" value="142685000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
@@ -744,7 +751,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="destinations poll visual" />
     <MESSAGE value="add new options for destinations; link with db" />
     <MESSAGE value="rajout commentaires" />
     <MESSAGE value="created user profile" />
@@ -769,7 +775,8 @@
     <MESSAGE value="design formulaires avec logo Planiz" />
     <MESSAGE value="changement couleur bandeau" />
     <MESSAGE value="rajout logo carré" />
-    <option name="LAST_COMMIT_MESSAGE" value="rajout logo carré" />
+    <MESSAGE value="design uniformisé" />
+    <option name="LAST_COMMIT_MESSAGE" value="design uniformisé" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -933,13 +940,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/partials/share_planiz_modal.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="19" column="6" lean-forward="false" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/fullcalendar.print.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5070">
@@ -962,13 +962,6 @@
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/budget.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="18" column="34" lean-forward="false" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -1124,8 +1117,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/dashboard.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="24" column="31" lean-forward="false" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
+        <state relative-caret-position="675">
+          <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/share_planiz_modal.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="12" column="62" lean-forward="true" selection-start-line="12" selection-start-column="62" selection-end-line="12" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/budget.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="35" column="28" lean-forward="false" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
           <folding />
         </state>
       </provider>
