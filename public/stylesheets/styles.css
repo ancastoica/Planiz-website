@@ -93,8 +93,8 @@ html, body {
   color: rgba(255, 255, 255, 0.56);
   font-weight: 500;
 }
-.demo-layout .demo-navigation .mdl-navigation__link:hover {
-  background-color: #00BCD4;
+.demo-layout .demo-header .demo-navigation .mdl-navigation__link:hover {
+  background-color: #3AB2AE;
   color: #37474F;
 }
 .demo-navigation .mdl-navigation__link .material-icons {
@@ -116,7 +116,7 @@ html, body {
   color: #ACEC00;
 }
 .demo-chart:nth-child(2) {
-  color: #00BBD6;
+  color: #3AB2AE;
 }
 .demo-chart:nth-child(3) {
   color: #BA65C9;
@@ -145,7 +145,7 @@ _:-ms-input-placeholder, :root .demo-graph {
 }
 /* TODO end */
 .demo-graph:nth-child(1) {
-  color: #00b9d8;
+  color: #3AB2AE;
 }
 .demo-graph:nth-child(2) {
   color: #d9006e;
@@ -179,7 +179,7 @@ _:-ms-input-placeholder, :root .demo-graph {
   background-repeat: no-repeat;
 }
 .demo-cards .mdl-card__actions a {
-  color: #00BCD4;
+  color: #3AB2AE;
   text-decoration: none;
 }
 
