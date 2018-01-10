@@ -67,10 +67,10 @@
                                                     }
                                                 }
                                             %>
-                                            <input type="checkbox" id=checkbox<%=i%> name=<%= planiz.destinations[i].name %> class="mdl-checkbox__input" <%= checked %>>
+                                            <input type="checkbox" id=checkbox<%=i%> name=<%= planiz.destinations[i].name %> class="mdl-checkbox__input" <%= checked %> >
                                             <div class="progress">
                                                 <div class="progress-bar" role="progressbar" aria-valuenow="70"
-                                                     aria-valuemin="0" aria-valuemax="100" style="width:<%= planiz.destinations[i].no*100/planiz.users.length %>%;height:25px">
+                                                     aria-valuemin="0" aria-valuemax="100" style="width:<%= planiz.destinations[i].no*100/planiz.users.length %>%;height:25px;background-color:#3AB2AE;color: #37474F;">
                                                     <span class="mdl-checkbox__label"><%= planiz.destinations[i].name %></span>
                                                 </div>
                                             </div>

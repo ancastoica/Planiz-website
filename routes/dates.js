@@ -68,10 +68,8 @@ MongoClient.connect("mongodb://localhost/bdd_planiz", function(err, db) {
                         console.error('Find failed', err);
                     } else {
                         for (var i = start; i < end; i.setDate(i.getDate() + 1)) {
-                            console.log("Added to global: " + i);
                             var query = {};
                             var str = "globalAvailabilities." + i.toISOString().substring(0, 10);
-                            console.log(str);
                             query[str] = 1;
                             if (result.globalAvailabilities[i.toISOString().substring(0, 10)]) {
                                 db.collection("planiz").update({"_id": o_id}, {$inc: query}, function (err, added) {});
@@ -137,7 +135,6 @@ MongoClient.connect("mongodb://localhost/bdd_planiz", function(err, db) {
                             start: start0,
                             end: end0
                         };
-                        console.log(best);
                         db.collection("planiz").update({"_id": o_id}, {$set: {"bestAvailabilities":best}}, function (err, added) {});
                     }
                     previousKey = key;

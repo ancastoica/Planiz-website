@@ -3,9 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="df8240b1-0581-4638-bda2-0bf6e6ffe2dc" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/public/stylesheets/form.css" afterPath="$PROJECT_DIR$/public/stylesheets/form.css" />
-      <change beforePath="$PROJECT_DIR$/public/stylesheets/styles.css" afterPath="$PROJECT_DIR$/public/stylesheets/styles.css" />
-      <change beforePath="$PROJECT_DIR$/views/partials/header.html" afterPath="$PROJECT_DIR$/views/partials/header.html" />
+      <change beforePath="$PROJECT_DIR$/routes/dates.js" afterPath="$PROJECT_DIR$/routes/dates.js" />
+      <change beforePath="$PROJECT_DIR$/views/dashboard.ejs" afterPath="$PROJECT_DIR$/views/dashboard.ejs" />
+      <change beforePath="$PROJECT_DIR$/views/destination.ejs" afterPath="$PROJECT_DIR$/views/destination.ejs" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,21 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="destination.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/destination.ejs">
+      <file leaf-file-name="dates.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/dates.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="623">
-              <caret line="138" column="0" lean-forward="false" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dashboard.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/dashboard.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2175">
-              <caret line="87" column="76" lean-forward="true" selection-start-line="87" selection-start-column="76" selection-end-line="87" selection-end-column="76" />
+            <state relative-caret-position="149">
+              <caret line="67" column="31" lean-forward="false" selection-start-line="67" selection-start-column="24" selection-end-line="67" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -77,11 +67,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="header.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="header.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/partials/header.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="50">
-              <caret line="2" column="64" lean-forward="false" selection-start-line="2" selection-start-column="64" selection-end-line="2" selection-end-column="64" />
+              <caret line="2" column="64" lean-forward="false" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="64" />
               <folding>
                 <element signature="n#style#0;n#header#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#div#0;n#header#0;n#!!top" expanded="true" />
@@ -93,18 +83,8 @@
       <file leaf-file-name="styles.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/stylesheets/styles.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="96" column="28" lean-forward="true" selection-start-line="96" selection-start-column="2" selection-end-line="96" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="form.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/stylesheets/form.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="5" column="30" lean-forward="true" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="30" />
+            <state relative-caret-position="149">
+              <caret line="188" column="27" lean-forward="false" selection-start-line="188" selection-start-column="19" selection-end-line="188" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -115,6 +95,28 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="241">
               <caret line="113" column="82" lean-forward="true" selection-start-line="113" selection-start-column="82" selection-end-line="113" selection-end-column="82" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="destination.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/destination.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="124">
+              <caret line="69" column="168" lean-forward="false" selection-start-line="69" selection-start-column="168" selection-end-line="69" selection-end-column="168" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#label#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dashboard.ejs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/dashboard.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="24" column="31" lean-forward="false" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -134,8 +136,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>user</find>
-      <find>form</find>
       <find>login</find>
       <find>logout</find>
       <find>post</find>
@@ -158,12 +158,14 @@
       <find>callback</find>
       <find>color</find>
       <find>destinations</find>
-      <find>console</find>
       <find>best</find>
       <find>console.log(best</find>
       <find>mdl-layout__header</find>
       <find>demo-</find>
       <find>header</find>
+      <find>progress</find>
+      <find>checkbox</find>
+      <find>console</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -203,12 +205,9 @@
         <option value="$PROJECT_DIR$/public/stylesheets/fullcalendar.min.css" />
         <option value="$PROJECT_DIR$/views/budget.ejs" />
         <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/views/destination.ejs" />
         <option value="$PROJECT_DIR$/routes/destination.js" />
         <option value="$PROJECT_DIR$/routes/createPlaniz.js" />
-        <option value="$PROJECT_DIR$/routes/dates.js" />
         <option value="$PROJECT_DIR$/views/dates.ejs" />
-        <option value="$PROJECT_DIR$/views/dashboard.ejs" />
         <option value="$PROJECT_DIR$/views/partials/left_menu.ejs" />
         <option value="$PROJECT_DIR$/views/login.ejs" />
         <option value="$PROJECT_DIR$/views/createPlaniz.ejs" />
@@ -216,6 +215,9 @@
         <option value="$PROJECT_DIR$/public/stylesheets/form.css" />
         <option value="$PROJECT_DIR$/public/stylesheets/styles.css" />
         <option value="$PROJECT_DIR$/views/partials/header.html" />
+        <option value="$PROJECT_DIR$/views/destination.ejs" />
+        <option value="$PROJECT_DIR$/routes/dates.js" />
+        <option value="$PROJECT_DIR$/views/dashboard.ejs" />
       </list>
     </option>
   </component>
@@ -659,11 +661,25 @@
       <option name="project" value="LOCAL" />
       <updated>1515606288130</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="changement couleur bandeau">
+      <created>1515608014140</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1515608014140</updated>
+    </task>
+    <task id="LOCAL-00031" summary="rajout logo carré">
+      <created>1515608105005</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1515608105005</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="140418000" />
+    <option name="totallyTimeSpent" value="142294000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
@@ -675,7 +691,7 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33094385" sideWeight="0.50216216" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33094385" sideWeight="0.50216216" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22341697" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
@@ -728,8 +744,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="initial commit" />
-    <MESSAGE value="removed unused dependency" />
     <MESSAGE value="destinations poll visual" />
     <MESSAGE value="add new options for destinations; link with db" />
     <MESSAGE value="rajout commentaires" />
@@ -753,7 +767,9 @@
     <MESSAGE value="Résolution meilleures dates" />
     <MESSAGE value="Merge branch 'master' of https://github.com/ancastoica/Planiz-website&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
     <MESSAGE value="design formulaires avec logo Planiz" />
-    <option name="LAST_COMMIT_MESSAGE" value="design formulaires avec logo Planiz" />
+    <MESSAGE value="changement couleur bandeau" />
+    <MESSAGE value="rajout logo carré" />
+    <option name="LAST_COMMIT_MESSAGE" value="rajout logo carré" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1013,14 +1029,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/dates.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-299">
-          <caret line="92" column="36" lean-forward="true" selection-start-line="92" selection-start-column="23" selection-end-line="92" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/destination.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
@@ -1029,26 +1037,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/destination.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="623">
-          <caret line="138" column="0" lean-forward="false" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/dates.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="241">
           <caret line="113" column="82" lean-forward="true" selection-start-line="113" selection-start-column="82" selection-end-line="113" selection-end-column="82" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/dashboard.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2175">
-          <caret line="87" column="76" lean-forward="true" selection-start-line="87" selection-start-column="76" selection-end-line="87" selection-end-column="76" />
           <folding />
         </state>
       </provider>
@@ -1087,16 +1079,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/form.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
+        <state relative-caret-position="-25">
           <caret line="5" column="30" lean-forward="true" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="96" column="28" lean-forward="true" selection-start-line="96" selection-start-column="2" selection-end-line="96" selection-end-column="28" />
           <folding />
         </state>
       </provider>
@@ -1104,11 +1088,45 @@
     <entry file="file://$PROJECT_DIR$/views/partials/header.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="50">
-          <caret line="2" column="64" lean-forward="false" selection-start-line="2" selection-start-column="64" selection-end-line="2" selection-end-column="64" />
+          <caret line="2" column="64" lean-forward="false" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="64" />
           <folding>
             <element signature="n#style#0;n#header#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#div#0;n#header#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="188" column="27" lean-forward="false" selection-start-line="188" selection-start-column="19" selection-end-line="188" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/destination.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="69" column="168" lean-forward="false" selection-start-line="69" selection-start-column="168" selection-end-line="69" selection-end-column="168" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#label#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/dates.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="67" column="31" lean-forward="false" selection-start-line="67" selection-start-column="24" selection-end-line="67" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/dashboard.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="24" column="31" lean-forward="false" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>

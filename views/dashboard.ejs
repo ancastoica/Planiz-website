@@ -22,7 +22,7 @@
                 <div class="mdl-color--white mdl-shadow--2dp center-block">
                     <div class="card mb-3 text-center">
                         <div class="card-block">
-                            <p class="card-text text-muted">Description: <%= planiz.description %></p>
+                            <h5 class="card-text text-muted">Description: <%= planiz.description %></h5>
                         </div>
                     </div>
 
@@ -47,7 +47,11 @@
                                     <div class="mdl-card__supporting-text mdl-color-text--grey-600">
                                         <%= keys[k] %> du <%= planiz.bestAvailabilities[""+keys[k]].start %> au <%= planiz.bestAvailabilities[""+keys[k]].end %>
                                     </div>
-                            <% }} %>
+                            <% }} else { %>
+                                <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+                                    The group hasn't entered their availabilities yet.
+                                </div>
+                            <% } %>
                         </div>
                     </div>
 
@@ -85,7 +89,13 @@
                                     <h2 class="card-title"><i class="material-icons" role="presentation">deuro_symbol</i>   Budget</h2>
                                 </div>
                             </div>
-                            <p>Budget du groupe : <%= planiz.budgetMin%></p>
+                            <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+                                <% if(planiz.budgetMin) { %>
+                                    Budget du groupe : <%= planiz.budgetMin%>
+                                <% } else {%>
+                                    No budget entered yet.
+                                <% } %>
+                            </div>
                         </div>
                     </div>
 
