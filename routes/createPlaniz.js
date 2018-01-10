@@ -27,6 +27,8 @@ MongoClient.connect("mongodb://localhost/bdd_planiz", function(err, db) {
             description: planiz_object.description,
             destinations: [],
             bestDestinations: [],
+            globalAvailabilities: {},
+            bestAvailabilities: {},
             users: [user]
         };
 

@@ -31,6 +31,11 @@
                 select: function(start, end) {
                     var title = "<%= user.name%>";
                     var eventData;
+                    if(start.isBefore(moment())) {
+                        $('#calendar').fullCalendar('unselect');
+                        window.alert("Cannot select past dates");
+                        return false;
+                    }
                     if (title) {
                         eventData = {
                             title: title,
@@ -42,10 +47,7 @@
                             url: '/<%= planiz._id%>/<%= user.id %>/addEvent',
                             data: JSON.stringify(eventData),
                             contentType: 'application/json',
-                            type: "POST",
-                            success: function () {
-                                alert('Added Successfully');
-                            }
+                            type: "POST"
                         });
                     }
                     $('#calendar').fullCalendar('unselect');
@@ -108,9 +110,14 @@
 
                         <div class="card ">
                             <div class="card-block">
-                                <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-                                    Exemple
-                                </div>
+                                <% var keys = Object.keys(planiz.bestAvailabilities);
+                                if(planiz.bestAvailabilities && keys.length > 1) {
+                                    keys.sort();
+                                    for(var k=keys.length-1;k>=1;k--){ %>
+                                        <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+                                            <%= keys[k] %> du <%= planiz.bestAvailabilities[""+keys[k]].start %> au <%= planiz.bestAvailabilities[""+keys[k]].end %>
+                                        </div>
+                                <% }} %>
                             </div>
                         </div>
 

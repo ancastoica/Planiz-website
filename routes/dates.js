@@ -58,12 +58,93 @@ MongoClient.connect("mongodb://localhost/bdd_planiz", function(err, db) {
         var o_id = new mongo.ObjectID(req.params.planiz_id);
         db.collection("planiz").update({"_id": o_id, "users.id":req.params.user_id}, { $push: { "users.$.availabilities": eventJ  } }, function(err, added) {
             if (err || !added) {
-                console.log("User not added.");
+                console.log("Event not added.");
                 callback(null, added);
             } else{
-                console.log("added successfully");
+                var start = new Date(eventJ.start+"Z");
+                var end = new Date(eventJ.end+"Z");
+                db.collection("planiz").findOne({"_id": o_id}, function (err, result) {
+                    if (err) {
+                        console.error('Find failed', err);
+                    } else {
+                        for (var i = start; i < end; i.setDate(i.getDate() + 1)) {
+                            console.log("Added to global: " + i);
+                            var query = {};
+                            var str = "globalAvailabilities." + i.toISOString().substring(0, 10);
+                            console.log(str);
+                            query[str] = 1;
+                            if (result.globalAvailabilities[i.toISOString().substring(0, 10)]) {
+                                db.collection("planiz").update({"_id": o_id}, {$inc: query}, function (err, added) {});
+                            } else {
+                                db.collection("planiz").update({"_id": o_id}, {$set: query}, function (err, added) {});
+                            }
+                        }
+                    }
+                    res.redirect('/'+req.params.planiz_id+'/'+req.params.user_id+'/computeBestAvailabilities');
+                });
             }
         });
+    });
+
+    router.get('/:planiz_id/:user_id/computeBestAvailabilities', function (req, res) {
+        var o_id = new mongo.ObjectID(req.params.planiz_id);
+        db.collection("planiz").findOne({"_id": o_id}, function (err, r) {
+            var a = r.globalAvailabilities;
+            var keys = Object.keys(a);
+            keys.sort();
+
+            var diff2 = 0;
+            var best = r.bestAvailabilities;
+
+            for(var d=1; d<=r.users.length;d++){
+
+                var key = keys[0];
+                var previousKey = key;
+                var start0 = key;
+                var end0 = key;
+                var start1 = new Date(start0+"Z");
+                var end1 = new Date(end0+"Z");
+                var diff1 = (end1-start1)/(1000*60*60*24);
+
+                if(r.bestAvailabilities[""+d]){
+                    var start2 = new Date(r.bestAvailabilities[""+d].start+"Z");
+                    var end2 = new Date(r.bestAvailabilities[""+d].end+"Z");
+                    diff2 = (end2-start2)/(1000*60*60*24);
+                } else{
+                    diff2 = 0;
+                }
+
+                for (var k = 1; k < keys.length; k++) {
+                    key = keys[k];
+
+                    var d1 = new Date(key+"Z");
+                    var d2 = new Date(previousKey+"Z");
+                    var diff = (d1-d2)/(1000*60*60*24);
+
+                    if (d <= a[key] && diff === 1  ) {
+                        end0 = key;
+                        end1 = new Date(end0+"Z");
+                    } else if(k < keys.length-1){
+                        start0 = key;
+                        end0 = key;
+                        start1 = new Date(start0+"Z");
+                        end1 = new Date(end0+"Z");
+                    }
+                    diff1 = (end1-start1)/(1000*60*60*24);
+
+                    if(r.bestAvailabilities[""+d] && diff1 > diff2 || !r.bestAvailabilities[""+d]){
+                        best[d] = {
+                            start: start0,
+                            end: end0
+                        };
+                        console.log(best);
+                        db.collection("planiz").update({"_id": o_id}, {$set: {"bestAvailabilities":best}}, function (err, added) {});
+                    }
+                    previousKey = key;
+                }
+            }
+        });
+        res.redirect('/'+req.params.planiz_id+'/'+req.params.user_id+'/dates');
     });
 
 });

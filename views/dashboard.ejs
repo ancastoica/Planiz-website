@@ -40,6 +40,14 @@
                                         <h2 class="card-title"><i class="material-icons" role="presentation">date_range</i>   Dates</h2>
                                 </div>
                             </div>
+                            <% var keys = Object.keys(planiz.bestAvailabilities);
+                                if(planiz.bestAvailabilities && keys.length > 1) {
+                                    keys.sort();
+                                    for(var k=keys.length-1;k>=keys.length-2 && k!=0;k--){ %>
+                                    <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+                                        <%= keys[k] %> du <%= planiz.bestAvailabilities[""+keys[k]].start %> au <%= planiz.bestAvailabilities[""+keys[k]].end %>
+                                    </div>
+                            <% }} %>
                         </div>
                     </div>
 
@@ -56,11 +64,15 @@
                                 <div class="mdl-card__supporting-text mdl-color-text--grey-600">
                                     <%= planiz.bestDestinations[0].no%>   <%= planiz.bestDestinations[0].name%>
                                 </div>
-                            <% if(planiz.bestDestinations.length > 1){ %>
+                                <% if(planiz.bestDestinations.length > 1){ %>
+                                    <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+                                        <%= planiz.bestDestinations[1].no%>   <%= planiz.bestDestinations[1].name%>
+                                    </div>
+                            <%} } else { %>
                                 <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-                                    <%= planiz.bestDestinations[1].no%>   <%= planiz.bestDestinations[1].name%>
+                                    Nobody has voted any destination yet.
                                 </div>
-                            <%}}%>
+                            <%}%>
                         </div>
                     </div>
 
