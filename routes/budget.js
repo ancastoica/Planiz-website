@@ -48,61 +48,51 @@ MongoClient.connect("mongodb://localhost/bdd_planiz", function(err, db) {
     router.post('/:planiz_id/:user_id/addBudget', urlEncodedParser, function (req, res) {
         console.log("Je suis ici et id = "+req.params.planiz_id)
         var o_id = new mongo.ObjectID(req.params.planiz_id);
-        db.collection("planiz").update({"_id": o_id, "users.id":req.params.user_id}, { $push: { "users.$.budget" : req.body.newoption }  }, function(err, added) {
+        db.collection("planiz").update({"_id": o_id, "users.id":req.params.user_id}, { $set: { "users.$.budget" : req.body.newoption }  }, function(err, added) {
             if( err || !added ) {
                 console.log("Budget not added.");
                 callback(null,added);
             }
             else {
                 console.log("Budget"+req.body.newoption+"added to "+o_id);
+                db.collection("planiz").findOne({"_id": o_id}, function (err, result) {
+                    if (err) {
+                        console.error('Find failed', err);
+                    }
+                    else {
+                        var users = result.users;
+                        var budget = [];
+                        for (var i = 0; i < users.length; i++) {
+                            if (typeof budget != "undefined") {
+                                budget[i] = users[i].budget;
+                            }
+                        }
+                    }
+                    budget_min = Math.min.apply(null,budget);
+
+
+                    if (budget_min != result.budgetMin) {
+                        db.collection("planiz").update({"_id": o_id}, {$set: {budgetMin: budget_min}}, function (err, added) {
+                            if (err || !added) {
+                                console.log("BugetMin not added.");
+                                callback(null, added);
+                            }
+                            else {
+                                console.log("BudgetMin" + budget_min + "added to " + o_id);
+                            }
+                        });
+                    }
+                    else {
+                        console.log("The BudgetMin hasn't changed");
+                    }
+
+
+                });
                 res.redirect('/'+req.params.planiz_id+'/'+req.params.user_id+'/budget');
             }
         });
 
-        db.collection("planiz").findOne({"_id": o_id}, function (err, result) {
-            if (err) {
-                console.error('Find failed', err);
-            }
-            else {
-                var users = result.users;
-                var budget = [];
-                for (var i = 0; i < users.length; i++) {
-                    if (typeof budget != "undefined") {
-                        budget[i] = users[i].budget;
-                    }
-                }
-            }
-            budget_min = Math.min.apply(null,budget);
-            if (typeof result.budgetMin === "undefined") {
-                console.log('I get here because it is undefined');
-                db.collection("planiz").update({"_id": o_id}, {$push: {budgetMin: budget_min}}, function (err, added) {
-                    if (err || !added) {
-                        console.log("BugetMin not added.");
-                        callback(null, added);
-                    }
-                    else {
-                        console.log("BudgetMin" + budget_min + "added to " + o_id);
-                    }
-                });
-            }
 
-            else if (budget_min != result.budgetMin) {
-                db.collection("planiz").update({"_id": o_id}, {$push: {budgetMin: budget_min}}, function (err, added) {
-                    if (err || !added) {
-                        console.log("BugetMin not added.");
-                        callback(null, added);
-                    }
-                    else {
-                        console.log("BudgetMin" + budget_min + "added to " + o_id);
-                    }
-                });
-            }
-            else {
-                console.log("The BudgetMin hasn't changed");
-            }
-
-
-        });
 
     });
 
