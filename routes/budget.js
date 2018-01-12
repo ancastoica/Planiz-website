@@ -44,9 +44,24 @@ function addingBudgetMin(db,o_id){
         }
         else {
             var budgetOfEverybody = gettingBudget(result);
+            insertingBudgetMin(db,o_id,budgetOfEverybody,result);
         }
-        insertingBudgetMin(db,o_id,budgetOfEverybody,result);
     });
+}
+
+function gettingCurrentUser(result,req){
+    var users = result.users;
+    for (var i = 0; i < users.length; i++){
+        // look for the entry with a matching `user_id` value
+        if (users[i].id == req.params.user_id){
+            // define the session variable
+            var user = users[i];
+            req.session.userId = users[i].id;
+
+        }
+    }
+    return user;
+
 }
 
 
@@ -55,32 +70,21 @@ MongoClient.connect("mongodb://localhost/bdd_planiz", function(err, db) {
     if (err) return funcCallback(err);
 
 
-    /* GET budget page for planiz_id */
+    /* GET budget page for a given planiz_id and a given user_id */
     router.get('/:planiz_id/:user_id/budget', function (req, res) {
         var o_id = new mongo.ObjectID(req.params.planiz_id);
         db.collection("planiz").findOne({"_id": o_id}, function (err, result) {
             if (err) {
                 console.error('Find failed', err);
             } else {
-                var users = result.users;
-                for (var i = 0; i < users.length; i++){
-                    // look for the entry with a matching `user_id` value
-                    if (users[i].id == req.params.user_id){
-                        // define the session variable
-                        var user = users[i];
-                        req.session.userId = users[i].id;
-
-                    }
-
+                var user = gettingCurrentUser(result,req);
                 }
-                }
-
                 res.render('budget', {title:result.title, planiz: result, user:user})
-
         });
     });
 
-    /* POST new budget option
+    
+    /* POST new budget option for a given planiz_id and user_id
       * */
     router.post('/:planiz_id/:user_id/addBudget', urlEncodedParser, function (req, res) {
         console.log("Je suis ici et id = "+req.params.planiz_id)
