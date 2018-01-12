@@ -113,7 +113,7 @@
                                 <% var keys = Object.keys(planiz.bestAvailabilities);
                                 if(planiz.bestAvailabilities && keys.length > 1) {
                                     keys.sort();
-                                    for(var k=keys.length-1;k>=1;k--){ %>
+                                    for(var k=keys.length-1;k>=0;k--){ %>
                                         <div class="mdl-card__supporting-text mdl-color-text--grey-600">
                                             <%= keys[k] %> du <%= planiz.bestAvailabilities[""+keys[k]].start %> au <%= planiz.bestAvailabilities[""+keys[k]].end %>
                                         </div>
