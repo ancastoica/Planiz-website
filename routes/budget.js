@@ -7,8 +7,8 @@ var mongo = require('mongodb');
 var bodyParser = require('body-parser');
 var urlEncodedParser = bodyParser.urlencoded({extended: false});
 
-function insertingBudgetMin(db,o_id,budget,result){
-    budget_min = Math.min.apply(null,budget);
+function insertingBudgetMin(db,o_id,budgetOfEverybody,result){
+    budget_min = Math.min.apply(null,budgetOfEverybody);
 
     if (budget_min != result.budgetMin) {
 
@@ -29,11 +29,11 @@ function insertingBudgetMin(db,o_id,budget,result){
 
 function gettingBudget(result) {
     var users = result.users;
-    var budget = [];
-    for (var i = 0; i < users.length; i++) {
-        budget[i] = users[i].budget;
+    var budgetOfEverybody = [];
+    for (var user_i = 0; user_i < users.length; user_i++) {
+        budgetOfEverybody[user_i] = users[user_i].budget;
     }
-    return budget;
+    return budgetOfEverybody;
 
 }
 
@@ -43,9 +43,9 @@ function addingBudgetMin(db,o_id){
             console.error('Find failed', err);
         }
         else {
-            var budget = gettingBudget(result);
+            var budgetOfEverybody = gettingBudget(result);
         }
-        insertingBudgetMin(db,o_id,budget,result);
+        insertingBudgetMin(db,o_id,budgetOfEverybody,result);
     });
 }
 
@@ -53,7 +53,6 @@ function addingBudgetMin(db,o_id){
 /* connexion à la bdd pour les pages spécifiques à 1 planiz*/
 MongoClient.connect("mongodb://localhost/bdd_planiz", function(err, db) {
     if (err) return funcCallback(err);
-
 
 
     /* GET budget page for planiz_id */
@@ -64,7 +63,6 @@ MongoClient.connect("mongodb://localhost/bdd_planiz", function(err, db) {
                 console.error('Find failed', err);
             } else {
                 var users = result.users;
-                var budget = [];
                 for (var i = 0; i < users.length; i++){
                     // look for the entry with a matching `user_id` value
                     if (users[i].id == req.params.user_id){
@@ -100,11 +98,6 @@ MongoClient.connect("mongodb://localhost/bdd_planiz", function(err, db) {
             }
         });
     });
-
-
-
-
-
 
 });
 
