@@ -64,16 +64,29 @@ MongoClient.connect("mongodb://localhost/bdd_planiz", function(err, db) {
                     if (err) {
                         console.error('Find failed', err);
                     } else {
-                        for (var i = start; i < end; i.setDate(i.getDate() + 1)) {
+                        for (var date = start; date < end; date.setDate(date.getDate() + 1)) {
                             var query = {};
-                            var str = "globalAvailabilities." + i.toISOString().substring(0, 10);
-                            query[str] = 1;
-                            if (result.globalAvailabilities[i.toISOString().substring(0, 10)]) {
-                                db.collection("planiz").update({"_id": o_id}, {$inc: query}, function (err, added) {});
-                            } else {
-                                db.collection("planiz").update({"_id": o_id}, {$set: query}, function (err, added) {});
-                            }
+                            var str = "globalAvailabilities." + date.toISOString().substring(0, 10);
+                            console.log("Voici l'id de l'utilisateur :" + req.params.user_id);
+                            query[str] = req.params.user_id;
+                            db.collection("planiz").update({"_id": o_id}, {$push: query}, function (err, added) {
+                                if (err || !added) {
+                                    console.log("Event not added.");
+                                    callback(null, added);
+                                }
+                            });
                         }
+
+                        if(result.usersFilledIn.indexOf(req.params.user_id) >=0){
+                            console.log('This user has already filled in his planiz');
+                        }
+                        else{
+                            db.collection("planiz").update({"_id": o_id}, { $push: {usersFilledIn : req.params.user_id}}, function(err, added) {});
+
+                        }
+
+
+
                     }
                     res.redirect('/'+req.params.planiz_id+'/'+req.params.user_id+'/computeBestAvailabilities');
                 });
@@ -83,60 +96,91 @@ MongoClient.connect("mongodb://localhost/bdd_planiz", function(err, db) {
 
     router.get('/:planiz_id/:user_id/computeBestAvailabilities', function (req, res) {
         var o_id = new mongo.ObjectID(req.params.planiz_id);
-        db.collection("planiz").findOne({"_id": o_id}, function (err, r) {
-            var a = r.globalAvailabilities;
-            var keys = Object.keys(a);
-            keys.sort();
+        var existingDifference = 0;
 
-            var diff2 = 0;
-            var best = r.bestAvailabilities;
 
-            for(var d=1; d<=r.users.length;d++){
 
-                var key = keys[0];
-                var previousKey = key;
-                var start0 = key;
-                var end0 = key;
-                var start1 = new Date(start0+"Z");
-                var end1 = new Date(end0+"Z");
-                var diff1 = (end1-start1)/(1000*60*60*24);
+        db.collection("planiz").findOne({"_id": o_id}, function (err, planiz) {
+            var best = planiz.bestAvailabilities;
+            var globalAvailabilities = planiz.globalAvailabilities;
+            var allDatesChosen = Object.keys(globalAvailabilities);
 
-                if(r.bestAvailabilities[""+d]){
-                    var start2 = new Date(r.bestAvailabilities[""+d].start+"Z");
-                    var end2 = new Date(r.bestAvailabilities[""+d].end+"Z");
-                    diff2 = (end2-start2)/(1000*60*60*24);
+            allDatesChosen.sort();
+
+
+            var nbTotalOfUsers = planiz.usersFilledIn.length;
+            console.log("Je commence le calcul !!!");
+            for(var nbOfPersonsAvailable=1; nbOfPersonsAvailable<=nbTotalOfUsers;nbOfPersonsAvailable++){
+                console.log("Calcul pour " + nbOfPersonsAvailable + " personne");
+
+                var currentDate = allDatesChosen[0];
+                var previousDate = currentDate;
+                var startInString = currentDate;
+                var endInString = currentDate;
+                var startAsDate = new Date(startInString+"Z"); // Conversion from string to date
+                var endAsDate = new Date(endInString+"Z");
+                var newDifferenceComputed = 0;
+
+                // For the coming update : Check if there is already a range in the database to update
+                if(planiz.bestAvailabilities[""+nbOfPersonsAvailable]){
+                    var startAsDate = new Date(planiz.bestAvailabilities[""+nbOfPersonsAvailable].start+"Z");
+                    var endAsDate = new Date(planiz.bestAvailabilities[""+nbOfPersonsAvailable].end+"Z");
+                    existingDifference = (endAsDate-startAsDate)/(1000*60*60*24);
                 } else{
-                    diff2 = 0;
+                    console.log("Il n'y a rien pour l'instant");
+                    existingDifference = 0;
                 }
 
-                for (var k = 1; k < keys.length; k++) {
-                    key = keys[k];
 
-                    var d1 = new Date(key+"Z");
-                    var d2 = new Date(previousKey+"Z");
-                    var diff = (d1-d2)/(1000*60*60*24);
 
-                    if (d <= a[key] && diff === 1  ) {
-                        end0 = key;
-                        end1 = new Date(end0+"Z");
+                for (var date = 1; date < allDatesChosen.length; date++) {
+                    currentDate = allDatesChosen[date];
+
+                    var currentDateAsDate = new Date(currentDate+"Z");
+                    var previousDateAsDate = new Date(previousDate+"Z");
+                    console.log("La date précedente est " + previousDate);
+                    console.log("La date actuelle est " + currentDate);
+
+
+                    var counter = 0;
+                    globalAvailabilities[currentDate].forEach(function(element){
+                        if (globalAvailabilities[previousDate].indexOf(element) >= 0){
+                            counter++;
+                        }
+                    });
+                    console.log("Si on compare le " + currentDate + "à " + previousDate + " ,on observe un coompteur égal à " +counter);
+
+                    var diffBetweenCurrentPrevious = (currentDateAsDate-previousDateAsDate)/(1000*60*60*24);
+                    console.log(("La différence entre les deux dates est " + diffBetweenCurrentPrevious));
+                    if (nbOfPersonsAvailable <= counter && diffBetweenCurrentPrevious === 1  ) {
+                        console.log("Bingo !")
+                        endInString = currentDate;
+                        endAsDate = new Date(endInString+"Z");
                     } else {
-                        start0 = key;
-                        end0 = key;
-                        start1 = new Date(start0+"Z");
-                        end1 = new Date(end0+"Z");
+                        console.log("Et non, on passe à la date suivante")
+                        startInString = currentDate;
+                        endInString = currentDate;
+                        startAsDate = new Date(startInString+"Z");
+                        endAsDate = new Date(endInString+"Z");
                     }
-                    diff1 = (end1-start1)/(1000*60*60*24);
 
-                    if(r.bestAvailabilities[""+d] && diff1 > diff2 || !r.bestAvailabilities[""+d]){
-                        best[d] = {
-                            start: start0,
-                            end: end0
+
+                    newDifferenceComputed = (endAsDate-startAsDate)/(1000*60*60*24);
+                    console.log(("La nouvelle différence calculée est donc "+ newDifferenceComputed));
+
+                    if(planiz.bestAvailabilities[""+nbOfPersonsAvailable] && newDifferenceComputed > existingDifference || !planiz.bestAvailabilities[""+nbOfPersonsAvailable]){
+                        console.log("On rajoute bien notre nouvelle plage");
+                        best[nbOfPersonsAvailable] = {
+                            start: startInString,
+                            end: endInString
                         };
                         db.collection("planiz").update({"_id": o_id}, {$set: {"bestAvailabilities":best}}, function (err, added) {});
                     }
-                    previousKey = key;
+                    previousDate = currentDate;
                 }
+
             }
+
         });
         res.redirect('/'+req.params.planiz_id+'/'+req.params.user_id+'/dates');
     });
