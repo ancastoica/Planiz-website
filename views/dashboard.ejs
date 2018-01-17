@@ -3,6 +3,37 @@
 
 <head>
     <%include partials/head.html%>
+
+    <link href='/stylesheets/fullcalendar.css' rel='stylesheet' />
+    <link href='/stylesheets/fullcalendar.print.css' rel='stylesheet' media='print' />
+
+    <!-- Calendar scripts -->
+
+    <script src='/javascripts/moment.min.js'></script>
+    <script src='/javascripts/fullcalendar.js'></script>
+
+    <script>
+        $(document).ready(function() {
+
+            $('#calendar').fullCalendar({
+                header: {
+                    left: '',
+                    center: 'title',
+                    right: ''
+                },
+                navLinks: true, // can click day/week names to navigate views
+                selectable: true,
+                selectHelper: true,
+                select: function() {
+                    $('#calendar').fullCalendar('unselect');
+                },
+                editable: true,
+                eventLimit: true, // allow "more" link when too many events
+                events: []
+            });
+        });
+    </script>
+
 </head>
 
 <body>
@@ -40,18 +71,7 @@
                                         <h2 class="card-title"><i class="material-icons" role="presentation">date_range</i>   Dates</h2>
                                 </div>
                             </div>
-                            <% var keys = Object.keys(planiz.bestAvailabilities);
-                                if(planiz.bestAvailabilities && keys.length > 1) {
-                                    keys.sort();
-                                    for(var k=keys.length-1;k>=keys.length-2 && k!=0;k--){ %>
-                                    <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-                                        <%= keys[k] %> du <%= planiz.bestAvailabilities[""+keys[k]].start %> au <%= planiz.bestAvailabilities[""+keys[k]].end %>
-                                    </div>
-                            <% }} else { %>
-                                <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-                                    The group hasn't entered their availabilities yet.
-                                </div>
-                            <% } %>
+                            <div id='calendar' name="calendar"></div>
                         </div>
                     </div>
 
