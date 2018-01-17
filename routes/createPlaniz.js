@@ -28,7 +28,8 @@ MongoClient.connect("mongodb://localhost/bdd_planiz", function(err, db) {
             bestDestinations: [],
             globalAvailabilities: {},
             bestAvailabilities: {},
-            users: [user]
+            users: [user],
+            usersFilledIn : []
         };
 
         req.session.userId = id_user;
