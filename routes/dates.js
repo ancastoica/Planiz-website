@@ -120,11 +120,12 @@ MongoClient.connect("mongodb://localhost/bdd_planiz", function(err, db) {
                 var startAsDate = new Date(startInString+"Z"); // Conversion from string to date
                 var endAsDate = new Date(endInString+"Z");
                 var newDifferenceComputed = 0;
+                var counter = 0;
 
                 // For the coming update : Check if there is already a range in the database to update
                 if(planiz.bestAvailabilities[""+nbOfPersonsAvailable]){
-                    var startAsDate = new Date(planiz.bestAvailabilities[""+nbOfPersonsAvailable].start+"Z");
-                    var endAsDate = new Date(planiz.bestAvailabilities[""+nbOfPersonsAvailable].end+"Z");
+                    startAsDate = new Date(planiz.bestAvailabilities[""+nbOfPersonsAvailable].start+"Z");
+                    endAsDate = new Date(planiz.bestAvailabilities[""+nbOfPersonsAvailable].end+"Z");
                     existingDifference = (endAsDate-startAsDate)/(1000*60*60*24);
                 } else{
                     console.log("Il n'y a rien pour l'instant");
@@ -142,7 +143,7 @@ MongoClient.connect("mongodb://localhost/bdd_planiz", function(err, db) {
                     console.log("La date actuelle est " + currentDate);
 
 
-                    var counter = 0;
+                    counter = 0;
                     globalAvailabilities[currentDate].forEach(function(element){
                         if (globalAvailabilities[previousDate].indexOf(element) >= 0){
                             counter++;
@@ -168,7 +169,7 @@ MongoClient.connect("mongodb://localhost/bdd_planiz", function(err, db) {
                     newDifferenceComputed = (endAsDate-startAsDate)/(1000*60*60*24);
                     console.log(("La nouvelle différence calculée est donc "+ newDifferenceComputed));
 
-                    if(planiz.bestAvailabilities[""+nbOfPersonsAvailable] && newDifferenceComputed > existingDifference || !planiz.bestAvailabilities[""+nbOfPersonsAvailable]){
+                    if(planiz.bestAvailabilities[""+nbOfPersonsAvailable] && newDifferenceComputed > existingDifference || !planiz.bestAvailabilities[""+nbOfPersonsAvailable] && newDifferenceComputed !== 0){
                         console.log("On rajoute bien notre nouvelle plage");
                         best[nbOfPersonsAvailable] = {
                             start: startInString,
