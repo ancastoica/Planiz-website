@@ -950,6 +950,7 @@ NOTE: use percentage font sizes or else old IE chokes
 
 .fc-toolbar h2 {
 	margin: 0;
+	font-size: 20px;
 }
 
 /* button layering (for border precedence) */
@@ -1010,7 +1011,7 @@ NOTE: use percentage font sizes or else old IE chokes
 }
 
 .fc-basic-view .fc-body .fc-row {
-	min-height: 4em; /* ensure that all rows are at least this tall */
+	min-height: 1em; /* ensure that all rows are at least this tall */
 }
 
 /* a "rigid" row will take up a constant amount of height because content-skeleton is absolute */

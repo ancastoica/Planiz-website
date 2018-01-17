@@ -5,7 +5,6 @@
     <%include partials/head.html%>
 
     <link href='/stylesheets/fullcalendar.css' rel='stylesheet' />
-    <link href='/stylesheets/fullcalendar.print.css' rel='stylesheet' media='print' />
 
     <!-- Calendar scripts -->
 
@@ -37,6 +36,7 @@
 </head>
 
 <body>
+
     <%include partials/share_planiz_modal.ejs%>
     <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
 
@@ -49,17 +49,27 @@
 
                 <br>
 
-                <!-- Description -->
-                <div class="mdl-color--white mdl-shadow--2dp center-block">
-                    <div class="card mb-3 text-center">
-                        <div class="card-block">
-                            <h5 class="card-text text-muted">Description: <%= planiz.description %></h5>
-                        </div>
-                    </div>
-
-                </div>
-
                 <div class="mdl-grid">
+
+                    <!-- Description -->
+                    <div class="demo-cards mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing" >
+                        <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop" >
+                            <div class="card">
+                                <div class="card-block ">
+                                    <h2 class="card-title"><%= title%></h2>
+                                </div>
+                            </div>
+                            <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+                                <%= planiz.description%>
+                            </div>
+                            <div class="mdl-card__menu">
+                                <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" id="hdrbtn" data-toggle="modal" data-target="#myModal">
+                                    <i class="material-icons">share</i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
 
 
                     <!-- Dates -->
@@ -71,7 +81,7 @@
                                         <h2 class="card-title"><i class="material-icons" role="presentation">date_range</i>   Dates</h2>
                                 </div>
                             </div>
-                            <div id='calendar' name="calendar"></div>
+                            <div id='calendar' name="calendar" style="height:10%;"></div>
                         </div>
                     </div>
 
