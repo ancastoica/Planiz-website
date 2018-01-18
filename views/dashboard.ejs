@@ -10,6 +10,7 @@
 
     <script src='/javascripts/moment.min.js'></script>
     <script src='/javascripts/fullcalendar.js'></script>
+    <script src='/javascripts/fr.js'></script>
 
     <script>
         $(document).ready(function() {
@@ -18,8 +19,9 @@
                 header: {
                     left: '',
                     center: 'title',
-                    right: ''
+                    right: 'prev,next'
                 },
+                locale: 'fr',
                 navLinks: true, // can click day/week names to navigate views
                 selectable: true,
                 selectHelper: true,
@@ -32,16 +34,24 @@
                     <% var keys = Object.keys(planiz.bestAvailabilities);
                     if(planiz.bestAvailabilities && keys.length > 1){
                         keys.sort();
-                        var endDate = new Date(planiz.bestAvailabilities[""+keys[keys.length-1]].end + "Z")
+                        var startDate = new Date(planiz.bestAvailabilities[""+keys[keys.length-1]].start + "Z");
+                        var endDate = new Date(planiz.bestAvailabilities[""+keys[keys.length-1]].end + "Z");
                         endDate.setDate(endDate.getDate() + 1)%>
                         {
                             title: '',
                             start: '<%= planiz.bestAvailabilities[""+keys[keys.length-1]].start%>',
-                            end: '<%= endDate.toISOString().substring(0, 10)%>',
+                            end: '<%= endDate.toISOString().substring(0, 10)%>'
                         }
                     <% } %>
                 ]
+                <% if (startDate) {%>
+                    , defaultDate: '<%= startDate %>'
+                    //, viewRender: function(view, element) {
+                    //    $('#calendar').fullCalendar( 'gotoDate', '<%= startDate.toISOString().substring(0, 10)%>' );
+                    //}
+                <% } %>
             });
+
         });
     </script>
 
