@@ -2322,7 +2322,7 @@ exports.globalDefaults = {
         prevYear: "prev year",
         nextYear: "next year",
         year: 'year',
-        today: 'today',
+        today: 'aujourd\'hui',
         month: 'month',
         week: 'week',
         day: 'day'
