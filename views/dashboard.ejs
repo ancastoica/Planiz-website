@@ -28,7 +28,19 @@
                 },
                 editable: true,
                 eventLimit: true, // allow "more" link when too many events
-                events: []
+                events: [
+                    <% var keys = Object.keys(planiz.bestAvailabilities);
+                    if(planiz.bestAvailabilities && keys.length > 1){
+                        keys.sort();
+                        var endDate = new Date(planiz.bestAvailabilities[""+keys[keys.length-1]].end + "Z")
+                        endDate.setDate(endDate.getDate() + 1)%>
+                        {
+                            title: '',
+                            start: '<%= planiz.bestAvailabilities[""+keys[keys.length-1]].start%>',
+                            end: '<%= endDate.toISOString().substring(0, 10)%>',
+                        }
+                    <% } %>
+                ]
             });
         });
     </script>
@@ -112,7 +124,7 @@
 
                     <!-- Budget -->
 
-                    <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
+                   <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
                         <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
                             <div class="card">
                                 <div class="card-block ">
