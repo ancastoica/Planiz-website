@@ -211,3 +211,15 @@ _:-ms-input-placeholder, :root .demo-graph {
       -ms-flex-align: center;
           align-items: center;
 }
+
+.glyphicon {
+    font-size: 10px;
+}
+
+.glyphicon-light::before {
+    font-weight: 100;
+}
+
+.glyphicon-thick::before {
+    font-weight: 900;
+}
