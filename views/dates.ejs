@@ -13,6 +13,7 @@
 
     <script src='/javascripts/moment.min.js'></script>
     <script src='/javascripts/fullcalendar.js'></script>
+    <script src='/javascripts/fr.js'></script>
 
     <!--Options du calendrier -->
     <script>
@@ -28,6 +29,7 @@
                 navLinks: true, // can click day/week names to navigate views
                 selectable: true,
                 selectHelper: true,
+                locale: 'fr',
                 select: function(start, end) {
                     var title = "<%= user.name%>";
                     var eventData;
@@ -53,7 +55,8 @@
                     $('#calendar').fullCalendar('unselect');
                 },
                 editable: true,
-                eventLimit: true, // allow "more" link when too many events
+                eventLimit: true,
+                eventColor: '#3AB2AE',
                 events: [
                     <% if(events[0]){
                             for(var i=0; i<events.length-1; i++) { %>
