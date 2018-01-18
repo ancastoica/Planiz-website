@@ -24,7 +24,7 @@
                             <fieldset>
                                 <div class="col-lg-6">
                                     <div class="input-group">
-                                        <input name="newoption" type="text" class="form-control" placeholder="100€" aria-label="Other...">
+                                        <input name="newoption" type="text" class="form-control" placeholder="€" aria-label="Other...">
                                         <span class="input-group-btn">
                                             <button class="btn btn-secondary" type="submit">Ajouter</button>
                                         </span>
@@ -35,8 +35,8 @@
 
                         <br>
 
-                        <h6>Votre budget est : <%= user.budget%> €</h6>
-                        <h6>Le budget du groupe est : <%= planiz.budgetMin%> €</h6>
+                        <h6>Votre budget par nuit est de: <%= user.budget%> €</h6>
+                        <h6>Le budget minimal est de: <%= planiz.budgetMin%> €</h6>
 
 
                     </div>
