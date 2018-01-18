@@ -185,6 +185,12 @@ _:-ms-input-placeholder, :root .demo-graph {
   text-decoration: none;
 }
 
+.test{
+    position: relative;
+    left: 250px;
+    top: 10px;
+}
+
 .demo-options h3 {
   margin: 0;
 }
