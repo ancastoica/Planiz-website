@@ -81,7 +81,7 @@
                                 </div>
                             </div>
                             <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-                                <%= planiz.description%>
+                                <h6><%= planiz.description%></h6>
                             </div>
                             <div class="mdl-card__menu">
                                 <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" id="hdrbtn" data-toggle="modal" data-target="#myModal">
@@ -115,7 +115,7 @@
                                 <h3>Liste participants :</h3>
                                 <ul class="a">
                                 <% for(var i=0; i<planiz.users.length; i++){%>
-                                    <li><div class="mdl-color-text--grey-600"><%=planiz.users[i].name%></div></li>
+                                    <li><div class="mdl-color-text--grey-600"><h6><%=planiz.users[i].name%></h6></div></li>
                                     <%}%>
                                 </ul>
                             </div>
@@ -147,7 +147,7 @@
                             </div>
                             <% if(planiz.bestDestinations && planiz.bestDestinations.length > 0){ %>
                                 <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-                                    <%= planiz.bestDestinations[0].no%>   <%= planiz.bestDestinations[0].name%>
+                                    <h6><%= planiz.bestDestinations[0].no%>   <%= planiz.bestDestinations[0].name%></h6>
                                 </div>
                                 <% if(planiz.bestDestinations.length > 1){ %>
                                     <div class="mdl-card__supporting-text mdl-color-text--grey-600">
@@ -194,29 +194,29 @@
                            <% if(planiz.usersFilledIn.length >= 2) { %>
 
                                 <div class="row">
-                                    <div class="col-sm-4" style="padding-right: 0;">
+                                    <div class="col-lg-4" style="padding-right: 0;">
                                         <div class="card">
                                             <div class="card-block ">
                                                 <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-                                                    Vous pouvez partir 4 jours au lieu de 7 et vous serez avec Nicolas!
+                                                    <h6>Vous pouvez partir 4 jours au lieu de 7 et vous serez avec Nicolas!</h6>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-4" style="padding-right: 0; padding-left: 0;">
+                                    <div class="col-lg-4" style="padding-right: 0; padding-left: 0;">
                                         <div class="card">
                                             <div class="card-block ">
                                                 <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-                                                    Partez un jour plus tard, vous économiserez 100€ sur votre vol!
+                                                    <h6>Partez un jour plus tard, vous économiserez 100€ sur votre vol!</h6>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-4" style="padding-left: 0;">
+                                    <div class="col-lg-4" style="padding-left: 0;">
                                         <div class="card">
                                             <div class="card-block ">
                                                 <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-                                                    Partez plutôt à Istanbul, c'est 20 € par jour moins cher!
+                                                    <h6>Partez plutôt à Istanbul, c'est 20 € par jour moins cher!</h6>
                                                 </div>
                                             </div>
                                         </div>
@@ -225,7 +225,7 @@
                                 <% } else { %>
 
                                     <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-                                        Remplissez le Planiz pour avoir accès aux suggestions!
+                                        <h6>Remplissez le Planiz pour avoir accès aux suggestions!</h6>
                                     </div>
 
                                 <% } %>
