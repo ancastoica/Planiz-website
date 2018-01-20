@@ -178,6 +178,56 @@
 
 
                 </div>
+                    <!-- Tableau de bord -->
+                   <div class="demo-cards mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
+                       <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop" style="min-height: 20px;">
+                           <div class="card">
+                               <div class="card-block ">
+                                   <h2 class="card-title">  Suggestions</h2>
+                               </div>
+                           </div>
+
+                           <% if(planiz.usersFilledIn.length >= 2) { %>
+
+                                <div class="row">
+                                    <div class="col-lg-4" style="padding-right: 0;">
+                                        <div class="card">
+                                            <div class="card-block ">
+                                                <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+                                                    Vous pouvez partir 4 jours au lieu de 7 et vous serez avec Nicolas!
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4" style="padding-right: 0; padding-left: 0;">
+                                        <div class="card">
+                                            <div class="card-block ">
+                                                <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+                                                    Partez un jour plus tard, vous économiserez 100€ sur votre vol!
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4" style="padding-left: 0;">
+                                        <div class="card">
+                                            <div class="card-block ">
+                                                <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+                                                    Partez plutôt à Istanbul, c'est 20 € par jour moins cher!
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                <% } else { %>
+
+                                    <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+                                        Remplissez le Planiz pour avoir accès aux suggestions!
+                                    </div>
+
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
             </div>
         </main>
     </div>
