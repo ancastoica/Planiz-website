@@ -185,11 +185,31 @@ _:-ms-input-placeholder, :root .demo-graph {
   text-decoration: none;
 }
 
-.test{
-    position: relative;
-    left: 250px;
-    top: 10px;
+.a ul {
+    list-style-type: disc;
 }
+.txParticipants {
+    position: relative;
+    left: 5px;
+}
+
+.nbreParticipants {
+    position: relative;
+    left: 5px;
+}
+
+.listeParticipants {
+    position: relative;
+    bottom: 200px;
+    left: 5px;
+}
+
+svg {
+    position: relative;
+    left: 145px;
+    bottom: 170px;
+}
+
 
 .demo-options h3 {
   margin: 0;

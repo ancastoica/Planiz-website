@@ -83,6 +83,8 @@ MongoClient.connect("mongodb://localhost/bdd_planiz", function(err, db) {
         });
     });
 
+
+
     
     /* POST new budget option for a given planiz_id and user_id
       * */
@@ -90,17 +92,25 @@ MongoClient.connect("mongodb://localhost/bdd_planiz", function(err, db) {
         console.log("Je suis ici et id = "+req.params.planiz_id)
         var o_id = new mongo.ObjectID(req.params.planiz_id);
 
-        db.collection("planiz").update({"_id": o_id, "users.id":req.params.user_id}, { $set: { "users.$.budget" : req.body.newoption }  }, function(err, added) {
-            if( err || !added ) {
-                console.log("Budget not added.");
-                callback(null,added);
-            }
-            else {
-                console.log("Budget"+req.body.newoption+"added to "+o_id);
-                addingBudgetMin(db,o_id);
-                res.redirect('/'+req.params.planiz_id+'/'+req.params.user_id+'/budget');
-            }
-        });
+        if (isNaN(req.body.newoption)){
+            console.log("ERREUR");
+            res.redirect('/' + req.params.planiz_id + '/' + req.params.user_id + '/budget');
+        }
+        else {
+            db.collection("planiz").update({"_id": o_id, "users.id": req.params.user_id}, {$set: {"users.$.budget": req.body.newoption}}, function (err, added) {
+                if (err || !added) {
+                    console.log("Budget not added.");
+                    callback(null, added);
+                }
+                else {
+                    console.log("Budget" + req.body.newoption + "added to " + o_id);
+                    addingBudgetMin(db, o_id);
+                    res.redirect('/' + req.params.planiz_id + '/' + req.params.user_id + '/budget');
+                }
+            });
+        }
+
+
     });
 
 });
