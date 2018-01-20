@@ -8,7 +8,14 @@ var bodyParser = require('body-parser');
 var urlEncodedParser = bodyParser.urlencoded({extended: false});
 
 function insertingBudgetMin(db,o_id,budgetOfEverybody,result){
+
+    var budgetOfEverybody = budgetOfEverybody.filter(function(x){
+        return (x !== (undefined || null || ''));
+    });
+
     budget_min = Math.min.apply(null,budgetOfEverybody);
+    console.log("Le budget minimal est "+ budget_min);
+    console.log(budgetOfEverybody);
 
     if (budget_min != result.budgetMin) {
 
@@ -18,7 +25,7 @@ function insertingBudgetMin(db,o_id,budgetOfEverybody,result){
                 callback(null, added);
             }
             else {
-                console.log("BudgetMin" + budget_min + "added to " + o_id);
+                console.log("BudgetMin " + budget_min + " added to " + o_id);
             }
         });
     }
@@ -31,8 +38,12 @@ function gettingBudget(result) {
     var users = result.users;
     var budgetOfEverybody = [];
     for (var user_i = 0; user_i < users.length; user_i++) {
-        budgetOfEverybody[user_i] = users[user_i].budget;
+        if(users[user_i].budget>0){
+            console.log("We enter "+users[user_i].budget);
+            budgetOfEverybody[user_i] = users[user_i].budget;
+        }
     }
+    console.log(budgetOfEverybody);
     return budgetOfEverybody;
 
 }
