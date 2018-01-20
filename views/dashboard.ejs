@@ -81,7 +81,7 @@
                                 </div>
                             </div>
                             <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-                                <%= planiz.description%>
+                                <h6><%= planiz.description%></h6>
                             </div>
                             <div class="mdl-card__menu">
                                 <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" id="hdrbtn" data-toggle="modal" data-target="#myModal">
@@ -95,26 +95,30 @@
                     <!-- Tableau de bord -->
 
                     <div class="demo-cards mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-grid mdl-grid--no-spacing">
-                        <li class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
+                        <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
                             <div class="card">
                                 <div class="card-block ">
                                     <h2 class="card-title">  Tableau de bord</h2>
                                 </div>
                             </div>
                             <br>
-                            <h3 class="txParticipants">Taux de participation : </h3><br>
+
+                            <h3 class="txParticipants">Taux de participation : <%= Math.round(planiz.usersFilledIn.length * 100 / planiz.users.length) %>%</h3>
+
+                            <br>
+
                             <div class="nbreParticipants"><h3>Nombre de participants : <%=planiz.users.length%></h3></div>
-                            <svg fill="#3AB2AE" width="200px" height="200px" viewBox="0 0 1 1" class="demo-chart mdl-cell mdl-cell--4-col mdl-cell--3-col-desktop">
-                                <use xlink:href="#piechart" mask="url(#piemask)" />
-                                <text x="0.5" y="0.5" font-family="Roboto" font-size="0.3" fill="#888" text-anchor="middle" dy="0.1"><%= Math.round(planiz.usersFilledIn.length * 100 / planiz.users.length) %><tspan font-size="0.2" dy="-0.07">%</tspan></text>
-                            </svg>
+
+                            <br>
+
                             <div class="listeParticipants">
                                 <h3>Liste participants :</h3>
                                 <ul class="a">
                                 <% for(var i=0; i<planiz.users.length; i++){%>
-                                    <li><%=planiz.users[i].name%></li>
+                                    <li><div class="mdl-color-text--grey-600"><h6><%=planiz.users[i].name%></h6></div></li>
                                     <%}%>
                                 </ul>
+                            </div>
                         </div>
                     </div>
 
@@ -143,7 +147,7 @@
                             </div>
                             <% if(planiz.bestDestinations && planiz.bestDestinations.length > 0){ %>
                                 <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-                                    <%= planiz.bestDestinations[0].no%>   <%= planiz.bestDestinations[0].name%>
+                                    <h6><%= planiz.bestDestinations[0].no%>   <%= planiz.bestDestinations[0].name%></h6>
                                 </div>
                                 <% if(planiz.bestDestinations.length > 1){ %>
                                     <div class="mdl-card__supporting-text mdl-color-text--grey-600">
@@ -190,11 +194,11 @@
                            <% if(planiz.usersFilledIn.length >= 2) { %>
 
                                 <div class="row">
-                                    <div class="col-lg-4" style="padding-right: 0;">
+                                    <div class="col-lg-4" style="padding-right: 0; padding-left: 0;">
                                         <div class="card">
                                             <div class="card-block ">
                                                 <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-                                                    Vous pouvez partir 4 jours au lieu de 7 et vous serez avec Nicolas!
+                                                    <h6>Vous pouvez partir 4 jours au lieu de 7 et vous serez avec Nicolas!</h6>
                                                 </div>
                                             </div>
                                         </div>
@@ -203,16 +207,16 @@
                                         <div class="card">
                                             <div class="card-block ">
                                                 <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-                                                    Partez un jour plus tard, vous économiserez 100€ sur votre vol!
+                                                    <h6>Partez un jour plus tard, vous économiserez 100€ sur votre vol!</h6>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4" style="padding-left: 0;">
+                                    <div class="col-lg-4" style="padding-right: 0; padding-left: 0;">
                                         <div class="card">
                                             <div class="card-block ">
                                                 <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-                                                    Partez plutôt à Istanbul, c'est 20 € par jour moins cher!
+                                                    <h6>Partez plutôt à Istanbul, c'est 20 € par jour moins cher!</h6>
                                                 </div>
                                             </div>
                                         </div>
@@ -221,7 +225,7 @@
                                 <% } else { %>
 
                                     <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-                                        Remplissez le Planiz pour avoir accès aux suggestions!
+                                        <h6>Remplissez le Planiz pour avoir accès aux suggestions!</h6>
                                     </div>
 
                                 <% } %>

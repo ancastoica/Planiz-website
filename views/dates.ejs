@@ -118,8 +118,9 @@
                                 if(planiz.bestAvailabilities && keys.length > 1) {
                                     keys.sort();
                                     for(var k=keys.length-1;k>=0;k--){ %>
-                                        <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+                                        <div class="mdl-card__supporting-text mdl-color-text--grey-600"><h6>
                                             <%= keys[k] %> du <%= planiz.bestAvailabilities[""+keys[k]].start %> au <%= planiz.bestAvailabilities[""+keys[k]].end %>
+                                            </h6>
                                         </div>
                                 <% }} %>
                             </div>
